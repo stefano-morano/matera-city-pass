@@ -233,6 +233,10 @@ function unvalidMode(text, email) {
   sconto.style.display = "none";
   resultText.style.display = "none";
   find_user(email).then(() => {
+    if (nome_user === undefined || cognome_user === undefined) {
+      nome_user = "Utente";
+      cognome_user = "Sconosciuto";
+    }
     name_label.innerText = nome_user + " " + cognome_user;
     name_label.style.display = "block";
     button.onclick = scanMode;

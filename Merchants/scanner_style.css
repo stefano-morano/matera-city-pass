@@ -95,7 +95,7 @@ p {
 @media (max-width: 480px) {
     .scanner {
         width: 90%;
-        height: 60vh;
+        height: 80vh;
     }
     h1 {
         font-size: 2rem;
