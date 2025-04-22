@@ -22,8 +22,8 @@
 - **API:** AirTable, JsQR, OpenStreetMaps
 - **Autenticazione:** Firebase Auth
 
-* 👥 Autori
-** Fondatori
+# 👥 Autori
+## Fondatori
   Giuseppe Donvito, Alex Maffei
-** Collaboratori
+## Collaboratori
   Stefano Morano
