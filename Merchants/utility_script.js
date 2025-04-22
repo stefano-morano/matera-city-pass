@@ -47,7 +47,9 @@ async function generaQR() {
     document.getElementById('qrcodes').innerHTML = '';
     const records = await fetch(API_URL, { headers }).then(r => r.json());
 
-    generaLink();
+    generaLink("https://www.materacitypass.com", "Matera City Pass");
+    generaLink("https://rebrand.ly/MCPAPR2025", "Matera City Pass Rebrand");
+    generaLink("https://kutt.it/MspCzw", "Matera City Pass Kutt");
     records.records.forEach(record => {
         const nome = record.fields.Name || 'Senza nome';
         const codice = record.fields.Codice;
@@ -74,15 +76,15 @@ async function generaQR() {
     });
 }
 
-function generaLink(){
+function generaLink(link, nome) {
     const div = document.createElement('div');
     div.className = 'qr-block';
 
     const title = document.createElement('h3');
-    title.textContent = "Matera City Pass";
+    title.textContent = nome;
 
     const qr = document.createElement('div');
-    let url_sito = "https://www.materacitypass.com"
+    let url_sito = link
     new QRCode(qr, { text: url_sito, width: 256, height: 256 });
 
     div.appendChild(title);
