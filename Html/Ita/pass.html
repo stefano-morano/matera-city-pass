@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pass</title>
+    <link rel="stylesheet" href="/CSS/pass_page_style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link rel="stylesheet" href="/CSS/navigation-bar.css">
+    <link rel="icon" href="/assets/favicon.png" type="image/png">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div id="navbar"></div>
+    
+    <!-- QR Code container -->
+    <div class="container">
+        <h1 id="username">Ciao!</h1>
+        <p>Premi il pulsante per generare il tuo QR Code temporaneo</p>
+        <button id="generateBtn">Genera QR Code</button>
+        <div id="qrContainer"></div>
+        <p id="timer" class="hidden">Tempo rimanente: <span id="countdown">60</span>s</p>
+    </div>
+    <script>
+        if (localStorage.getItem('lang') == "en"){
+            window.location.href = "/Html/Eng/pass.html";
+        } 
+    </script>
+    <script type="module" src="/Script/pass_page_script.js"></script>
+</body>
+</html>

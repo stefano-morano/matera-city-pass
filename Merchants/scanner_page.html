@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scanner QR Code</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsQR/1.4.0/jsQR.min.js"></script>
+    <link rel="stylesheet" href="scanner_style.css">
+</head>
+<body>
+    <h1>Scanner QR Code</h1>
+    <div class="scanner" id="card">
+        <video id="camera" autoplay></video>
+        <canvas id="canvas"></canvas>
+        <image src="../assets/placeholder.png" alt="Profile Pic" id="img"></image>
+        <p id="nome">Nome </p>
+        <p id="log">QR Code valido ✅</p>
+        <p id="sconto">Sconto applicato:</p>
+        <button id="button">Conferma</button>
+        <p id="result">Scansiona il QR Code</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+    <script src="scanner_script.js" type="module"></script>
+</body>
+</html>

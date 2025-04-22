@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="/CSS/registration_form_style.css">
+    <link rel="stylesheet" href="/CSS/navigation-bar.css">
+    <link rel="icon" href="/assets/favicon.png" type="image/png">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div id="navbar"></div>
+
+    <div class="container">
+        <h2>Completa la registrazione</h2>
+        <form id="userForm">
+
+            <img src="" alt="profile-img" class="profile-img" id="profileImg" style="display: none;">
+
+            <div class="form-group">
+                <label for="nome" class="obbligatorio">*Nome:</label>
+                <input type="text" id="nome">
+            </div>
+            
+            <div class="form-group">
+                <label for="cognome" class="obbligatorio">*Cognome:</label>
+                <input type="text" id="cognome">
+            </div>
+            
+            <label for="genere" class="obbligatorio">*Genere:</label>
+            <select id="genere">
+                <option value="Uomo">Uomo</option>
+                <option value="Donna">Donna</option>
+            </select>
+
+            <div class="form-group">
+                <label for="nascita" class="obbligatorio">*Data di Nascita:</label>
+                <input type="date" id="data" name="data">
+            </div>
+            
+            <label for="nazionalità" class="obbligatorio">*Seleziona un Paese</label>
+            <select id="countryDropdown">
+                <option value="">Caricamento...</option>
+            </select>
+
+            <div class="form-group">
+                <label for="telefono">Cellulare:</label>
+                <input type="text" id="telefono">
+            </div>
+
+            <label for="cognome" class="obbligatorio">*Campo obbligatorio</label>
+
+            <div class="button-container">
+                <button id="submit_button">Ottieni il Pass</button>
+            </div>
+            
+        </form>
+    </div>
+    <script>
+        if (localStorage.getItem('lang') == "en"){
+            window.location.href = "/Html/Eng/registration_form.html";
+        } 
+    </script>
+    <script type="module" src="/Script/registration_form_script.js"></script>
+</body>
+</html>

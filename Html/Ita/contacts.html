@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatti</title>
+    <link rel="stylesheet" href="/CSS/contacts_style.css">
+    <link rel="stylesheet" href="/CSS/navigation-bar.css">
+    <link rel="icon" href="/assets/favicon.png" type="image/png">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div id="navbar"></div>
+
+    <div class="container">
+        <h1>Contatti</h1>
+
+        <div class="info-container">
+            <h2>Chi Siamo</h2>
+            <p>
+              Siamo <strong>Alex</strong> e <strong>Giuseppe</strong>, nati e cresciuti a <strong>Matera</strong>, e amiamo la nostra città.
+              Per motivi di studio e lavoro, negli ultimi <strong>10 anni</strong> abbiamo avuto la fortuna di vivere in paesi come la Lituania, 
+              la Francia, il Regno Unito, e la Svizzera, e di trascorrere momenti indimenticabili anche nelle 
+              dinamiche atmosfere di città italiane come Torino e Milano.
+            </p>
+
+            <p>
+              Ogni rientro a Matera è per noi un ritorno alle <strong>radici</strong>: 
+              una rinascita emotiva in quella che definiamo la nostra <strong>“casa del cuore”</strong>. 
+              Insieme ai nostri amici, organizziamo tour personalizzati attraverso le vie antiche di Matera, 
+              svelando angoli nascosti, storie e tradizioni uniche.
+            </p>
+
+            <p>
+                Crediamo che queste <strong>esperienze</strong> debbano essere condivise e riservate a chi, come noi, 
+                desidera vivere Matera in maniera autentica e profonda. È da questo spirito di condivisione 
+                e dalla voglia di far vivere la città a chi amiamo che nasce l’idea del <strong>Matera City Pass</strong>.
+            </p>
+        </div>
+
+        <!-- Fondatori -->
+        <div class="founders">
+            <h2 class="section-title">Fondatori</h2>
+            <div class="team-section">
+                <!-- Fondatore 1 -->
+                <div class="member">
+                    <img src="/assets/giuseppeDP.jpeg" alt="Giuseppe Donvito">
+                    <h3>Giuseppe Donvito</h3>
+                    <p>Laureato in Ingegneria dei materiali con specializzazione in Design & Engineering al Politecnico di Milano.
+                        Lavoro nel mondo del design e della manifattura additiva da 5 anni. Dal 2024 sono socio di uno studio di progettazione 
+                        e stampa 3D a Milano e project manager & lecturer presso il Design Lab del Politecnico di Kaunas.</p>
+                    <p><a href="mailto:giuseppe@materacitypass.com">giuseppe@materacitypass.com</a></p>
+                </div>
+                
+                <!-- Fondatore 2 -->
+                <div class="member">
+                    <img src="/assets/alexDP.JPG" alt="Alex Maffei">
+                    <h3>Alexander Maffei</h3>
+                    <p>Laureato in Ingegneria Gestionale al Politecnico di Torino e Master in Management della ESCP Business School di Parigi. 
+                        Ha lavorato per Spotify nel team di strategia dei podcast e da NBCUniversal come Product Manager.
+                        Da 2 anni si occupa di produzione e distribuzione di film in Europa.</p>
+                    <p><a href="mailto:alexander@materacitypass.com">alexander@materacitypass.com</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Collaboratori -->
+        <div class="collaborators">
+            <h2 class="section-title">Collaboratori</h2>
+            <div class="team-section">
+                <!-- Collaboratore 1 -->
+                <div class="member">
+                    <img src="/assets/stefanoDP.JPG" alt="Stefano Morano">
+                    <h3>Stefano Morano</h3>
+                    <p><strong>Ruolo:</strong> Website Manager</p>
+                    <p>Laureato in Ingengeria Informatica al Politecnico di Milano e studente di Sound Engineering.
+                        Oltre ad aver approfondito le sue esperienze in ambito informatico, elettronico e design motociclistico,
+                        lavora come sviluppatore web per il Matera City Pass.
+                    </p>
+                    <p><a href="mailto:stefano.morano01@gmail.com">stefano.morano01@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        if (localStorage.getItem('lang') == "en"){
+            window.location.href = "/Html/Eng/contacts.html";
+        } 
+    </script>
+    <script type="module" src="/Script/contacts_script.js"></script>
+</body>
+</html>
+

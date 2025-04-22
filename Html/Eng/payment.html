@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Plans</title>
+    <link rel="stylesheet" href="/CSS/payment_page_style.css">
+    <link rel="stylesheet" href="/CSS/navigation-bar.css">
+    <link rel="icon" href="/assets/favicon.png" type="image/png">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div id="navbar"></div>
+
+    <div class="container">
+        <h2 class="title" id="title">Choose your pass</h2>
+        <div class="cards">
+            <div class="card" id="zero-card">
+                <h3>Matera City Pass</h3>
+                <p>✅ Discounts at partner businesses</p>
+                <p>❌ No free museum entries</p>
+                <p>⏱️ Expires at midnight (00:00)</p>
+                <p class="price">Free</p>
+                <button id="zero">Get it</button>
+            </div>
+            <div class="card">
+                <h3>Matera City Pass 1 Day</h3>
+                <p>✅ Discounts at partner businesses</p>
+                <p>✅ 2 free museum entries</p>
+                <p>⏱️ Expires 24h after purchase</p>
+                <p class="price">€8</p>
+                <button id="first">Buy</button>
+            </div>
+            <div class="card">
+                <h3>Matera City Pass 2 Days</h3>
+                <p>✅ Discounts at partner businesses</p>
+                <p>✅ 3 free museum entries</p>
+                <p>⏱️ Expires 48h after purchase</p>
+                <p class="price">€15</p>
+                <button id="second">Buy</button>
+            </div>
+            <div class="card">
+                <h3>Matera City Pass 3 Days</h3>
+                <p>✅ Discounts at partner businesses</p>
+                <p>✅ 4 free museum entries</p>
+                <p>⏱️ Expires 72h after purchase</p>
+                <p class="price">€25</p>
+                <button id="third">Buy</button>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/Script/payment_page_script.js"></script>
+    <script>
+        if (localStorage.getItem('lang') == "it"){
+            window.location.href = "/Html/Ita/payment.html";
+        } 
+    </script>
+</body>
+</html>

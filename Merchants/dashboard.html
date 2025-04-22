@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../assets/favicon.png" type="image/png">
+    <title>Manutenzione</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('../assets/blur_bg.png') no-repeat center center/cover;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .logo {
+            max-width: 150px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #997457;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            margin-top: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        
+
+        @media (max-width: 480px) {
+            .container {
+                width: 80%;
+            }
+
+            body{
+                height: 90vh;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1.2rem;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="/assets/logo.png" alt="Logo" class="logo">
+        <h1>Dashboard</h1>
+        <p>In arrivo con il prossimo aggiornamento!</p>
+        <button id="returnHome">Torna alla Home</button>
+    </div>
+    <script>
+        var code_azienda;
+
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            code_azienda = params.get("azienda");
+            console.log(code_azienda);
+        };
+
+        // Funzione per reindirizzare alla home page
+        function redirectToHome() {
+            url = "index.html?azienda=" + code_azienda;
+            window.location.href = url;
+        }
+
+        document.getElementById('returnHome').addEventListener('click', redirectToHome);
+    </script>
+</body>
+</html>

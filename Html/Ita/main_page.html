@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matera City Pass</title>
+    <link rel="stylesheet" href="/CSS/main_page_style.css">
+    <link rel="stylesheet" href="/CSS/navigation-bar.css">
+    <link rel="icon" href="/assets/favicon.png" type="image/png">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div id="navbar"></div>
+
+    <!-- Upper banner -->
+    <div class="banner">
+        <div class="banner-content">
+            <h1>La guida perfetta per Matera</h1>
+            <p>Esplora, divertiti e risparmia con le nostre offerte esclusive</p>
+            <button class="discover-btn" id="discover-btn">Scopri di più</button>
+        </div>
+    </div>
+
+    <!-- Filtri di ricerca -->
+    <div class="filter-container">
+        <div class="filter" data-value="Ristoranti">
+            <img src="/assets/Icons/restaurant.svg" alt="Ristoranti">
+            <span>Ristoranti</span>
+        </div>
+        <div class="filter" data-value="Bar">
+            <img src="/assets/Icons/bar.svg" alt="Bar">
+            <span>Bar</span>
+        </div>
+        <div class="filter" data-value="Pub">
+            <img src="/assets/Icons/pub.svg" alt="Pub">
+            <span>Pub</span>
+        </div>
+        <div class="filter" data-value="Cultura">
+            <img src="/assets/Icons/museum.svg" alt="Cultura">
+            <span>Cultura</span>
+        </div>
+        <div class="filter" data-value="Experience">
+            <img src="/assets/Icons/experience.svg" alt="Experience">
+            <span>Experience</span>
+        </div>
+    </div>
+
+    <!-- Barra di ricerca -->
+    <input type="text" id="searchBar" placeholder="Cerca...">
+    
+    <section class="cards-container" id="cards-container"></section>
+
+    <!-- Dark Background Overlay -->
+    <div id="overlay" class="overlay"></div>
+
+    <!-- Card Pop-up -->
+    <div id="popup" class="popup">
+        <!-- Titolo al centro -->
+        <h2 id="popup-title">Nome</h2>
+    
+        <!-- Sezione superiore: immagine a sinistra, mappa a destra -->
+        <div class="up">
+            <img alt="Image" id="popup-img">
+            <div id="map"></div>
+        </div>
+    
+        <!-- Sezione inferiore: descrizione, indirizzo, bottoni -->
+        <div class="down">
+            <p id="popup-description">Descrizione</p>
+            <p id="popup-address"><strong>📍 Indirizzo</strong></p>
+            <p id="popup-sconto"><strong>💰 Sconto</strong></p>
+    
+            <div id="popup-buttons">
+                <button id="popup-link">Google Maps</button>
+                <button id="closePopup">Chiudi</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        if (localStorage.getItem('lang') == "en"){
+            window.location.href = "/Html/Eng/main_page.html";
+        } 
+    </script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script type="module" src="/Script/main_page_script.js"></script>
+</body>
+</html>

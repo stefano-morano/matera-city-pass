@@ -1,0 +1,69 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f9;
+    background: url('../assets/blur_bg.png') no-repeat center center/cover;
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    margin-top: 20vh;
+    text-align: center;
+    height: 40vh;
+    width: 36vh;
+}
+
+#username{
+    margin-top: 20px;
+    margin-bottom: 40px;
+    width: 34vh;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #AB8E78;
+}
+
+#generateBtn {
+    background-color: #AB8E78;
+    color: white;
+    border: none;
+    padding: 20px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: 30px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #997457;
+}
+
+#qrContainer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    .container {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        margin: 0 auto;
+        margin-top: 20vh;
+        text-align: center;
+        height: 60vh;
+        width: 37vh;
+    }
+}

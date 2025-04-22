@@ -1,0 +1,117 @@
+body { 
+    text-align: center; 
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    flex-direction: column;
+    font-family: Arial, sans-serif; 
+    background: url('../assets/bg-blur.png') no-repeat center/cover;
+}
+
+video { 
+    width: 80%; 
+    max-width: 500px; 
+    height: auto;
+    border-radius: 10px;
+    z-index: 999;
+    margin-top: 15px;
+}
+        
+canvas { 
+    display: none; 
+}
+        
+#result { 
+    margin-top: 10px; 
+    font-size: 18px; 
+    font-weight: bold; 
+}
+
+.scanner {
+    width: 30%;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra orizzontalmente */
+    background-color: #c7c6aa;
+    text-align: center;
+    border-radius: 20px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 30px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    width: fit-content;
+    color: white;
+}
+
+p {
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    width: fit-content;
+    color: white;
+}
+
+#nome{
+    font-weight: bold;
+}
+
+#img {
+    width: 150px;
+    height: 150px;
+    margin-top: 30px;
+    border-radius: 50%;
+}
+
+#result {
+    margin-top: 30px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#button {
+    width: 60%;
+    padding: 10px;
+    background-color: #AB8E78;
+    border: none;
+    color: white;
+    margin-top: 30px;
+    margin-bottom: 0;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+@media (max-width: 480px) {
+    .scanner {
+        width: 90%;
+        height: 60vh;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    p {
+        font-size: 1.5rem;
+    }
+    #img {
+        width: 15vh;
+        height: 15vh;
+    }
+    #button {
+        font-size: 1rem;
+    }
+
+    video{
+        width: 30vh;
+    }
+}

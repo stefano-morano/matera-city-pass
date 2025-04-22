@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accesso</title>
+    <link rel="stylesheet" href="/CSS/login_page_style.css">
+    <link rel="stylesheet" href="/CSS/navigation-bar.css">
+    <link rel="icon" href="/assets/favicon.png" type="image/png">
+</head>
+<body>
+   
+    <!-- Navigation Bar -->
+    <div id="navbar"></div>
+
+    <div class="container">
+        <h2 id="title">Accedi</h2>
+        <form id="registration-form">
+            <div class="form-group">
+                <label for="email" id="email-label">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="Inserisci la tua email">
+            </div>
+
+            <div class="form-group">
+                <label for="password" id="password-label">Password:</label>
+                <input type="password" id="password" name="password" required placeholder="Inserisci la tua password">
+            </div>
+
+            <p id="error-message"></p>
+
+            <div class="form-group">
+                <button class="button" type="button" id="login-Btn">Accedi</button>
+            </div>
+
+            <div class="form-group" style="display: none;" id="reset-form">
+                <button class="button" type="button" id="send-email">Invia mail di recupero</button>
+            </div>
+
+            <p class="login-link" id="login-link">Nuovo utente? <a href="/Html/Ita/registration.html">Registrati</a></p>
+            <p class="reset-link" id="reset-link">Forgot your password? 
+                <a id="reset-button" role="button">Reset</a>
+            </p>
+        </form>
+    </div>
+    <script>
+        if (localStorage.getItem('lang') == "en"){
+            window.location.href = "/Html/Eng/login.html";
+        } 
+    </script>
+    <script type="module" src="/Script/login_page_script.js"></script>
+</body>
+</html>

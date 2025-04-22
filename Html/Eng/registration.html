@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="/CSS/registration_page_style.css">
+    <link rel="stylesheet" href="/CSS/navigation-bar.css">
+    <link rel="icon" href="/assets/favicon.png" type="image/png">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div id="navbar"></div>
+
+    <div class="container">
+        <h2>Register</h2>
+        <form id="registration-form">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required placeholder="Enter your password">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Confirm Password:</label>
+                <input type="password" id="confirm_password" name="password" required placeholder="Confirm your password">
+            </div>
+
+            <div class="log-msg">
+                <p id="log-msg"></p>
+            </div>
+
+            <div class="form-group">
+                <button class="button" type="submit" id="regButton">Register</button>
+            </div>
+
+            <p class="login-link">Already have an account? <a href="/Html/Eng/login.html">Sign in</a></p>
+        </form>
+    </div>
+
+    <script type="module" src="/Script/registration_page_script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@3/dist/fp.min.js"></script>
+    <script>
+        if (localStorage.getItem('lang') == "it"){
+            window.location.href = "/Html/Ita/registration.html";
+        } 
+    </script>
+</body>
+</html>

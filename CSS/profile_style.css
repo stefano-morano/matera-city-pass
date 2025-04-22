@@ -1,0 +1,159 @@
+/* Stili di base */
+body {
+    font-family: Arial, sans-serif;
+    height: 90vh;
+    margin: 0;
+    background-color: #f4f4f9;
+    background: url('../assets/blur_bg.png') no-repeat center center/cover;
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    margin-top: 10vh;
+    height: 80vh;
+    overflow: auto;
+    width: 45vh;
+}
+
+#genere:focus {
+    border-color: #AB8E78;
+}
+
+#alert{
+    display: none;
+    color: red;
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    width: 95%;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    margin-left: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+input[type="text"], input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus, input[type="date"]:focus {
+    border-color: #AB8E78;
+}
+
+#save_button {
+    width: 70%;
+    padding: 10px;
+    background-color: #AB8E78;
+    border: none;
+    color: white;
+    margin-top: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#upload-button {
+    width: 70%;
+    padding: 10px;
+    background-color: #AB8E78;
+    border: none;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#genere, #countryDropdown {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 25px;
+    margin-top: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.button-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    justify-content: center;
+    gap: 10px; /* spazio tra i figli */
+}
+
+.state{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.info{
+    font-size: 16px;
+}
+
+#stato-pass{
+    font-weight: bold;
+    color: green;
+}
+
+#scadenza{
+    font-weight: bold;
+}
+
+.profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 3px solid #AB8E78;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    align-self: center;
+}
+
+.img{
+    width: 105%;
+    text-align: center;
+}
+
+
+@media (max-width: 480px) {
+    .container {
+        width: 80%;
+        height: 70vh;
+    }
+
+    body{
+        height: 80vh;
+    }
+}

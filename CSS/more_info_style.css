@@ -1,0 +1,123 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('../assets/blur_bg.png') no-repeat center center/cover;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    margin-top: 100px;
+    background: white;
+    padding: 20px;
+    overflow: auto;
+    margin-top: 100px;
+    display: column;
+    height: 80vh;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#title{
+    text-align: center;
+    font-size: 30px;
+    color: #816958;
+    margin-bottom: 10px;
+    transform: translateY(-40%);
+}
+
+p{
+    text-align: justify;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: -10px;
+    font-size: 33px;
+}
+
+#subtitle {
+    text-align: center;
+    margin-bottom: 20px;
+    transform: translateY(-40%);
+    font-size: 20px;
+}
+
+h2, h3 {
+    color: #2c3e50;
+    text-align: center;
+    font-size: 20px;
+    color: #AB8E78;
+}
+
+.cta-button {
+    display: block;
+    width: 50%;
+    background: #AB8E78;
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+    padding: 15px;
+    border: none;
+    border-radius: 15px;
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+    max-width: calc(100% - 40px); 
+}
+
+.image{
+    width: 10%;
+}
+
+.image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.cta-button:hover {
+    background: #997457;
+    cursor: pointer;
+}
+
+ul, ol{
+    list-style-type: point;
+    padding: 5;
+    text-align: justify;
+    margin: 0 auto;
+    margin-right: 20px;
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 80%;
+        height: 66vh;
+    }
+    .container input,
+    .container label {
+        font-size: 12px; /* Ancora più piccolo per schermi molto piccoli */
+    }
+
+    p, li {
+        font-size: 13px;
+    }
+
+    h3 {
+        font-size: 19px;
+    }
+
+    .cta-button {
+        font-size: 13px;
+        width: 80%;
+    }
+
+    .image{
+        width: 20%;
+    }
+}

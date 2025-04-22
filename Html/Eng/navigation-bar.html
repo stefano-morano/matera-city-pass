@@ -1,0 +1,35 @@
+<!-- Top Navigation bar-->
+<nav class="navbar">
+
+    <div class="logo"> 
+        <img src="/assets/logo.png" alt="Matera City Pass">
+    </div>
+
+    <!-- Mobile language selector -->
+    <select id="language-select-phone" class="language-select-phone">
+        <option value="it">🇮🇹</option>
+        <option value="en">🇬🇧</option>
+    </select>
+
+    <ul class="nav-links" id="nav-links">
+        <li><a href="/Html/Eng/main_page.html">Home</a></li>
+        <li><a href="/Html/Eng/loading.html" id="buttonPass">Pass</a></li>
+        <li><a id="label_contatti" href="/Html/Eng/contacts.html">Contacts</a></li>
+    </ul>
+
+    <!-- Language selector -->
+    <select id="language-select" class="language-select">
+        <option value="it">Italiano</option>
+        <option value="en">English</option>
+    </select>
+
+    <button onclick="window.location.href='/Html/Eng/login.html'" class="sign-in" id="loginBtn">Sign in</button>
+
+    <div class="profile-menu" id="profileMenu" style="display: none;">
+        <button class="profile-btn" id="profile-btn"></button>
+        <div class="profile-dropdown">
+            <a id="label_profilo" href="/Html/Eng/profile.html">Profile</a>
+            <a href="#" id="logout-btn">Log out</a>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,88 @@
+body { 
+    text-align: center; 
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    flex-direction: column;
+    font-family: Arial, sans-serif; 
+    background: url('../assets/bg-blur.png') no-repeat center/cover;
+}
+
+.container {
+    width: 25%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra orizzontalmente */
+    background-color: #c7c6aa;
+    text-align: center;
+    border-radius: 20px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    width: fit-content;
+    color: white;
+}
+
+p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    width: fit-content;
+    color: white;
+}
+
+input {
+    width: 70%;
+    padding: 20px;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #AB8E78;
+}
+
+.button {
+    width: 60%;
+    padding: 10px;
+    background-color: #AB8E78;
+    border: none;
+    color: white;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+@media (max-width: 480px) {
+    .container {
+        width: 90%;
+        height: 50vh;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+    input {
+        font-size: 1rem;
+    }
+    .button {
+        font-size: 1rem;
+    }
+}

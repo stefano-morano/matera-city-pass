@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piani di Pagamento</title>
+    <link rel="stylesheet" href="/CSS/payment_page_style.css">
+    <link rel="stylesheet" href="/CSS/navigation-bar.css">
+    <link rel="icon" href="/assets/favicon.png" type="image/png">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div id="navbar"></div>
+
+    <div class="container">
+        <h2 class="title" id="title">Scegli il tuo pass</h2>
+        <div class="cards">
+            <div class="card" id="zero-card">
+                <h3>Matera City Pass</h3>
+                <p>✅ Sconti presso attività convenzionate</p>
+                <p>❌ Nessun ingresso gratuito nei musei</p>
+                <p>⏱️ Scade a mezzanotte (00:00)</p>
+                <p class="price">Gratis</p>
+                <button id="zero">Ottieni</button>
+            </div>
+            <div class="card">
+                <h3>Matera City Pass 1 Giorno</h3>
+                <p>✅ Sconti presso attività convenzionate</p>
+                <p>✅ 2 ingressi gratuiti nei musei</p>
+                <p>⏱️ Scade 24h ore dopo il pagamento</p>
+                <p class="price">€8</p>
+                <button id="first">Acquista</button>
+            </div>
+            <div class="card">
+                <h3>Matera City Pass 2 Giorni</h3>
+                <p>✅ Sconti presso attività convenzionate</p>
+                <p>✅ 3 ingressi gratuiti nei musei</p>
+                <p>⏱️ Scade 48h ore dopo il pagamento</p>
+                <p class="price">€15</p>
+                <button id="second">Acquista</button>
+            </div>
+            <div class="card">
+                <h3>Matera City Pass 3 Giorni</h3>
+                <p>✅ Sconti presso attività convenzionate</p>
+                <p>✅ 4 ingressi gratuiti nei musei</p>
+                <p>⏱️ Scade 72h ore dopo il pagamento</p>
+                <p class="price">€25</p>
+                <button id="third">Acquista</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        if (localStorage.getItem('lang') == "en"){
+            window.location.href = "/Html/Eng/payment.html";
+        } 
+    </script>
+    <script type="module" src="/Script/payment_page_script.js"></script>
+</body>
+</html>

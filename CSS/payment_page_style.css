@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('../assets/blur_bg.png') no-repeat center center/cover;
+    justify-content: center; /* Centra verticalmente */
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: auto;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 100%; /* Evita che il contenuto sia troppo largo su schermi grandi */
+}
+
+.title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 70px;
+    margin-bottom: 40px;
+    color: white;
+    width: 20%;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.cards {
+    display: flex;
+    flex-direction: inline;
+    justify-content: center;
+    overflow: auto;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s;
+    width: 100%; /* Rende le card larghe quanto il contenitore */
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+button {
+    background: #AB8E78;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    width: 40%;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #916D54; /* Variante più chiara per l'hover */
+}
+
+#zero-card{
+    display: none;
+}
+
+@media (max-width: 480px) {
+
+    button {
+        width: 80%; /* Rende i bottoni larghi quanto il contenitore */
+        font-size: 1.1rem;
+    }
+    .container{
+        height: 100vh;
+        padding: 0;
+    }
+
+    body{
+        height: 100vh;
+    }
+
+    .title{
+        font-size: 1.5rem;
+        width: 80%;
+        margin-top: 80px;
+        margin-bottom: 20px;
+    }
+
+    .card{
+        width: 90%; /* Rende le card larghe quanto il contenitore */
+        padding: 15px;
+    }
+
+    .cards{
+        flex-direction: column;
+    }
+}

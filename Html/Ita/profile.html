@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profilo</title>
+    <link rel="stylesheet" href="/CSS/profile_style.css">
+    <link rel="stylesheet" href="/CSS/navigation-bar.css">
+    <link rel="icon" href="/assets/favicon.png" type="image/png">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div id="navbar"></div>
+
+    <div class="container">
+        <h2>Profilo</h2>
+        <form id="userForm">
+            
+            <div class="img">
+                <img src="/assets/placeholder.png" class="profile-img" id="profileImg">
+            </div>
+
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome">
+            </div>
+            
+            <div class="form-group">
+                <label for="cognome">Cognome:</label>
+                <input type="text" id="cognome">
+            </div>
+            
+            <label for="genere">Genere:</label>
+            <select id="genere">
+                <option value="Uomo">Uomo</option>
+                <option value="Donna">Donna</option>
+            </select>
+
+            <div class="form-group">
+                <label for="nascita">Data di Nascita:</label>
+                <input type="date" id="data" name="data">
+            </div>
+            
+            <label for="nazionalità">Seleziona un Paese</label>
+            <select id="countryDropdown">
+                <option value="">Caricamento...</option>
+            </select>
+
+            <div class="form-group">
+                <label for="telefono">Cellulare:</label>
+                <input type="text" id="telefono">
+            </div>
+
+            <div class="state">
+                <label class="info">Stato Pass:</label>
+                <label id="stato-pass" class="info">Caricamento...</label>
+            <div>
+
+            <div class="state">
+                <label class="info">Ingressi musei:</label>
+                <label id="stato-musei" class="info">Caricamento...</label>
+            <div>
+
+            <div class="state">
+                <label class="info">Scadenza:</label>
+                <label id="scadenza" class="info">Caricamento...</label>
+            <div>
+
+            <label for="alert" id="alert">Non puoi lasciare campi vuoti!</label>
+
+            <div class="button-container">
+                <button id="save_button">Salva le modifiche</button>
+            </div>
+            
+        </form>
+    </div>
+    <script>
+        if (localStorage.getItem('lang') == "en"){
+            window.location.href = "/Html/Eng/profile.html";
+        } 
+    </script>
+    <script type="module" src="/Script/profile_script.js"></script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+.navbar {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    padding: 8px 20px;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex; /* I link sono disposti orizzontalmente */
+    justify-content: center; /* I link sono centrati */
+    align-items: center;
+    list-style-type: none;
+    gap: 20px;
+    padding: 1;
+    transform: translateX(4.8%);
+    left: 50%;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #AB8E78;
+}
+
+.sign-in {
+    background-color: #AB8E78;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin-right: 40px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sign-in:hover {
+    background-color: #997457;
+}
+
+.profile-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 40px;
+    border: none;
+    cursor: pointer;
+    background-image: url('../assets/placeholder.png'); /* Placeholder per immagine profilo */
+    background-size: cover;
+    background-position: center;
+}
+
+.profile-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    min-width: 150px;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 1;
+}
+
+.profile-dropdown a {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    color: black;
+}
+
+.profile-dropdown a:hover {
+    background-color: #f1f1f1;
+}
+
+.profile-menu.active .profile-dropdown {
+    display: block;
+}
+
+.language-select {
+    background-color: #c7c6aa;
+    color: black;
+    padding: 6px 10px;
+    font-size: 14px;
+    border-radius: 10px;
+    margin-right: 20px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.language-select-phone {
+    display: none;
+}
+
+@media (max-width: 480px) {
+
+    .language-select {
+        display: none;
+    }
+
+    .language-select-phone{
+        display: block;
+        z-index: 1000;
+        background-color: #c7c6aa;;
+        font-size: 16px;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+        transition: color 0.3s ease;
+        font-size: 1rem;
+    }
+
+    .nav-links{
+        gap: 17px;
+        transform: translateX(-3%);
+    }
+
+    .sign-in {
+        background-color: #AB8E78;
+        color: white;
+        border: none;
+        padding: 11.5px;
+        transform: translateX(10%);
+        border-radius: 15px;
+    }
+    
+    .profile-btn {
+        width: 35px;
+        height: 35px;
+    }
+
+    .sign-in {
+        font-size: 13px;
+        margin-right: 40px;
+    }
+
+    .logo{
+        display: none;
+    }
+}

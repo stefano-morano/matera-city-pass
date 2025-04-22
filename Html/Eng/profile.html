@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="/CSS/profile_style.css">
+    <link rel="stylesheet" href="/CSS/navigation-bar.css">
+    <link rel="icon" href="/assets/favicon.png" type="image/png">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div id="navbar"></div>
+
+    <div class="container">
+        <h2>Profile</h2>
+        <form id="userForm">
+            
+            <div class="img">
+                <img src="/assets/placeholder.png" class="profile-img" id="profileImg">
+            </div>
+
+            <div class="form-group">
+                <label for="nome">First Name:</label>
+                <input type="text" id="nome">
+            </div>
+            
+            <div class="form-group">
+                <label for="cognome">Last Name:</label>
+                <input type="text" id="cognome">
+            </div>
+            
+            <label for="genere">Gender:</label>
+            <select id="genere">
+                <option value="Uomo">Male</option>
+                <option value="Donna">Female</option>
+            </select>
+
+            <div class="form-group">
+                <label for="nascita">Date of Birth:</label>
+                <input type="date" id="data" name="data">
+            </div>
+            
+            <label for="nazionalità">Select a Country</label>
+            <select id="countryDropdown">
+                <option value="">Loading...</option>
+            </select>
+
+            <div class="form-group">
+                <label for="telefono">Phone:</label>
+                <input type="text" id="telefono">
+            </div>
+
+            <div class="state">
+                <label class="info">Pass Status:</label>
+                <label id="stato-pass" class="info">Loading...</label>
+            </div>
+
+            <div class="state">
+                <label class="info">Museum Entries:</label>
+                <label id="stato-musei" class="info">Loading...</label>
+            </div>
+
+            <div class="state">
+                <label class="info">Expiration:</label>
+                <label id="scadenza" class="info">Loading...</label>
+            </div>
+
+            <label for="alert" id="alert">You can't leave fields empty!</label>
+
+            <div class="button-container">
+                <button id="save_button">Save Changes</button>
+            </div>
+            
+        </form>
+    </div>
+    <script type="module" src="/Script/profile_script.js"></script>
+    <script>
+        if (localStorage.getItem('lang') == "it"){
+            window.location.href = "/Html/Ita/profile.html";
+        } 
+    </script>
+</body>
+</html>

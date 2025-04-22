@@ -1,0 +1,60 @@
+body { 
+    text-align: center; 
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-family: Arial, sans-serif; 
+}
+
+#container-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: inline;
+}
+
+
+button { 
+    margin: 10px;
+    padding: 20px; 
+    font-size: 16px;
+    color: white;
+    background-color: #997457;
+    border-radius: 15px;
+}
+
+.qr-block {
+    margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-bottom: 2px solid #ccc; /* ← linea grigia sotto ogni blocco */
+    padding-bottom: 30px;
+    width: 100%;
+}
+
+#qrcodes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+p {
+    font-size: 20px;
+    padding: 5px;
+}
+
+h3 {
+    font-size: 25px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+img{
+    margin-top: 30px;
+    border-radius: 10px;
+    align-items: center;
+}

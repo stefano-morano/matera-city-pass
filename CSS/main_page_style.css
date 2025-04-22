@@ -1,0 +1,425 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* -------------------------- Banner ------------------------------ */
+
+.banner {
+    background: url('../assets/main_page_bg.jpeg') no-repeat center center/cover;
+    width: 100%;
+    height: auto; /* Altezza dinamica */
+    min-height: 200px; /* Imposta un'altezza minima per evitare che diventi troppo piccolo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    margin-top: 60px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.banner-content {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    border-radius: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-out forwards;
+    max-width: 80%; /* Limita la larghezza per non uscire dal banner */
+    width: 60%; /* Assicura che si adatti */
+    max-height: fit-content;
+}
+
+.banner-content h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    font-family: Arial, sans-serif;
+}
+
+.banner-content p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.discover-btn {
+    background-color: #997457;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.discover-btn:hover {
+    background-color: #997457;
+    transform: scale(1.05);
+}
+
+/* ------------------------------------------------------------------------- */
+
+#searchBar {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 40px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    max-width: calc(100% - 100px); /* 100% meno il margine sinistro e destro */
+}
+
+#searchBar:focus{
+    border: 1px solid #AB8E78;
+}
+
+/* -------------------------- Filter Search ------------------------------ */
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 10px;
+    padding: 10px;
+    overflow-x: auto; /* Permette lo scroll se ci sono troppi filtri */
+    white-space: nowrap;
+}
+
+.filter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s, transform 0.2s;
+}
+
+.filter img {
+    width: 40px; /* Regola la dimensione dell'icona */
+    height: 40px;
+}
+
+.filter span {
+    font-size: 14px;
+    margin-top: 5px;
+    color: #333;
+}
+
+.filter:hover {
+    opacity: 1;
+    color: #997457;
+    transform: scale(1.1);
+}
+
+.filter.active {
+    opacity: 1;
+    font-weight: bold;
+    border-bottom: 2px solid black;
+    padding-bottom: 5px;
+}
+
+/* ----------------------------------------------------------------------- */
+
+/* -------------------------- Merchant Cards ------------------------------ */
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 40px;
+}
+
+.card {
+    background: #c7c6aa;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-content h3 {
+    margin: 10px 0;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.card-content p {
+    margin: 5px 0;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #555;
+    text-align: center;
+}
+
+/* ------------------------------------------------------------------------------- */
+
+/* -------------------------- Pop-up window styling ------------------------------ */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Darken the background */
+    display: none; /* Hidden by default */
+    z-index: 999; /* Place it above the content */
+    display: none;
+}
+
+.popup {
+    position: fixed;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #c7c6aa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 80vh;
+    max-width: 1000px;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    padding:30px;
+    align-items: center;
+    text-align: center;
+    z-index: 1000;
+    overflow: auto;
+}
+
+/* Titolo */
+#popup-title {
+    font-size: 23px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    background: #C29F8B;
+    padding: 12px;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+}
+
+/* Sezione superiore (immagine + mappa) */
+.up {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 40%;
+    gap: 10px;
+}
+
+/* Immagine */
+#popup-img {
+    width: 35%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Mappa */
+#map {
+    width: 65%;
+    height: 100%;
+    border-radius: 15px;
+}
+
+/* Sezione inferiore con testo e bottoni */
+.down {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+    width: 100%;
+    
+}
+
+/* Descrizione */
+#popup-description {
+    font-size: 16px;
+    color: #666;
+    background: #fff;
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 80%;
+}
+
+/* Indirizzo */
+#popup-address {
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 10px;
+    background: white;
+    padding: 8px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Indirizzo */
+#popup-sconto {
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 10px;
+    background: white;
+    padding: 8px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Bottoni */
+#popup-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#popup-link, 
+#closePopup {
+    padding: 10px;
+    background-color: #AB8E78;
+    font-size: 1em;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+#popup-link:hover, 
+#closePopup:hover {
+    background-color: #997457;
+    transform: scale(1.05);
+}
+/* --------------------------------------------------------------------------- */
+
+@media (max-width: 480px) {
+    .banner {
+        height: 55vw; /* Più spazio per il testo */
+        margin-top: 50px;
+    }
+
+    .banner-content {
+        width: 95%;
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+    .banner-content h1 {
+        font-size: 5.5vw;
+    }
+
+    .banner-content p {
+        font-size: 3vw;
+    }
+
+    .discover-btn {
+        font-size: 3vw;
+        padding: 6px 12px;
+    }
+
+    .filter-container {
+        gap: 25px;
+    }
+
+    .filter{
+        font-size: 0.5rem;
+    }
+
+    .popup {
+        width: 80%;
+        height: 70vh;
+        margin-top: 50px;
+        padding: 15px;
+        padding-top: 10px;
+    }
+
+    /* Titolo centrato */
+    #popup-title {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    /* Layout con immagine a sinistra e testo a destra */
+    .up {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        gap: 10px;
+    }
+
+    /* Immagine più piccola, a sinistra */
+    #popup-img {
+        width: 30%;
+        height: 30vh;
+    }
+
+    /* Testo a destra dell'immagine */
+    .popup-text {
+        width: 60%;
+        text-align: left;
+        padding-left: 10px;
+    }
+
+    #popup-description {
+        font-size: 12px;
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    #popup-address {
+        font-size: 12px;
+    }
+
+    #popup-sconto {
+        font-size: 12px;
+    }
+
+    /* Mappa sotto */
+    #map {
+        width: 150%;
+        height: 30vh;
+    }
+
+    /* Bottoni al centro */
+    #popup-buttons {
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

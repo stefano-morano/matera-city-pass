@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Console</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <link rel="stylesheet" href="utility_stile.css">
+  <link rel="icon" href="/assets/favicon_console.png" type="image/png">
+</head>
+<body>
+  <h1>Matera City Pass Admin Console</h1>
+  <div id="container-button">
+    <button id="genera-codici">Genera Codici</button>
+    <button id="genera-qr">Genera QR Code</button>
+  </div>
+  <h2 id="success" style="display: none; color: #997457;">Codici generati con successo!</h2>
+  <div id="qrcodes"></div>
+  <script src="utility_script.js" type="module"></script>
+</body>
+</html>

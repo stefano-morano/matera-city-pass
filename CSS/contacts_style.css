@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('../assets/blur_bg.png') no-repeat center center/cover;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 40px;
+    margin-top: 60px;
+}
+
+.info-container {
+    max-width: 100%;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 15px;
+    background-color: #f7f7f7;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    align-items: center;
+ }
+
+.info-container p{
+    text-align: justify;
+}
+
+.info-container h2{
+    color: #AB8E78;
+    text-align: center;
+    font-size: 2rem;
+    transform: translateY(-30%);
+}
+
+.team-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.member {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 40%;
+    margin-bottom: 40px;
+    padding: 20px;
+    text-align: center;
+}
+
+.member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.member h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.member p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 15px;
+    align-content: center;
+}
+
+.member a {
+    text-decoration: none;
+    color: #AB8E78;
+    font-weight: bold;
+}
+
+.section-title {
+    width: fit-content;
+    padding: 10px 20px;
+    margin: 0 auto 30px auto;
+    text-align: center;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 24px;
+}
+
+.founders, .collaborators {
+    margin-bottom: 50px;
+}
+
+@media (max-width: 480px) {
+    .member {
+        width: 90%;
+    }
+}
