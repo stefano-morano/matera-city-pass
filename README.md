@@ -9,7 +9,7 @@
 ---
 
 <div align="center">
-    <img src="assets/logo.png" alt="Description" width="500"/>
+    <img src="assets/Screenshot.png" alt="Description" width="500"/>
 </div>
 
 ## ✨ Caratteristiche principali
@@ -21,7 +21,6 @@
 - 🔍 Ricerca e filtri per attrazioni
 
 ---
-
 ## 🛠️ Tecnologie utilizzate
 
 - **Frontend:** HTML5, CSS3, JavaScript
