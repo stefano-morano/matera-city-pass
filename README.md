@@ -1,5 +1,9 @@
 # 🌆 Matera City Pass
 
+<div align="center">
+    <img src="assets/logo.png" alt="Description" width="300"/>
+</div>
+
 **Matera City Pass** è una web app pensata per migliorare l'esperienza turistica nella città di Matera, offrendo un pass digitale per visitare musei, attrazioni culturali e siti storici. L'app consente ai visitatori di esplorare la città e accedere facilmente ai luoghi convenzionati.
 
 ---
