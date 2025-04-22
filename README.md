@@ -8,6 +8,10 @@
 
 ---
 
+<div align="center">
+    <img src="assets/logo.png" alt="Description" width="500"/>
+</div>
+
 ## ✨ Caratteristiche principali
 
 - ✅ Registrazione e autenticazione utenti
