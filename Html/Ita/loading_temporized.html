@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/favicon.png" type="image/png">
+    <title>Caricamento</title>
+    <style>
+       
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: url('/assets/blur_bg.png') no-repeat center center/cover;
+            background-size: cover;
+            display: flex;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loader {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        /* Animazione di rotazione */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+    <link rel="stylesheet" href="/CSS/navigation-bar.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div id="navbar"></div>
+    <!-- Container nero semi-trasparente con animazione di caricamento -->
+    <div class="container">
+        <div class="loader"></div>
+    </div>
+   <script type="module" src="/Script/loading_script_temporized.js"></script>
+   <script>
+    if (localStorage.getItem('lang') == "en"){
+        window.location.href = "/Html/Eng/loading_temporized.html";
+    } 
+</script>
+</body>
+</html>

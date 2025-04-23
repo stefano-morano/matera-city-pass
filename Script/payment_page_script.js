@@ -36,21 +36,21 @@ onAuthStateChanged(auth, (user) => {
         );
 
         document.getElementById("first").addEventListener("click", function() {
-            let url = 'https://buy.stripe.com/test_4gwbKI9BS7AngJW3cg?prefilled_email=' + user_mail;
+            let url = 'https://buy.stripe.com/4gweYEah72rE1fWfZ0?prefilled_email=' + user_mail;
             console.log(url);
             window.location.href = url;
         }
         );
         
         document.getElementById("second").addEventListener("click", function() {
-            let url = 'https://buy.stripe.com/test_8wM8yw3du1bZbpC7sx?prefilled_email=' + user_mail;
+            let url = 'https://buy.stripe.com/14kdUAgFv8Q2aQw3cd?prefilled_email=' + user_mail;
             console.log(url);
             window.location.href = url;
         }
         );
         
         document.getElementById("third").addEventListener("click", function() {
-            let url = 'https://buy.stripe.com/test_4gweWU9BS6wj79m006?prefilled_email=' + user_mail;
+            let url = 'https://buy.stripe.com/00gdUA0Gx8Q20bS3cc?prefilled_email=' + user_mail;
             console.log(url);
             window.location.href = url;
         }
