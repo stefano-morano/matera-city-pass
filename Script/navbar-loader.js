@@ -17,9 +17,6 @@ function loadNavbar() {
                     console.log("Modulo JavaScript caricato!");
                     if (currentPage === "login.html" || currentPage === "registration.html") {
                         document.getElementById("loginBtn").style.display = "none";
-                        if (window.innerWidth <= 500)
-                            document.getElementById("nav-links").style.transform = "translateX(-7%)";  
-                        else document.getElementById("nav-links").style.transform = "translateX(3%)";
                     }
                 })
                 .catch(err => {
@@ -40,9 +37,6 @@ function loadNavbar() {
                     console.log("Modulo JavaScript caricato!");
                     if (currentPage === "login.html" || currentPage === "registration.html") {
                         document.getElementById("loginBtn").style.display = "none";
-                        if (window.innerWidth <= 500)
-                            document.getElementById("nav-links").style.transform = "translateX(-7%)";  
-                        else document.getElementById("nav-links").style.transform = "translateX(3%)";
                     }
                 })
                 .catch(err => {

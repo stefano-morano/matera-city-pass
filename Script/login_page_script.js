@@ -34,7 +34,7 @@ async function login(email, password) {
     try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
         console.log("Login riuscito:", userCredential.user);
-        window.location.href = "main_page.html";
+        loadPage("main_page");
     } catch (error) {
         console.error("Errore di login:", error.message);
         if (error.code === "auth/invalid-credential") {

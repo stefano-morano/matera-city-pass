@@ -7,17 +7,19 @@ onAuthStateChanged(auth, (user) => {
     if (user) {
         fetchUser(user.email);
         document.getElementById("loginBtn").style.display = "none";
-        document.getElementById("profileMenu").style.display = "inline-block";
-        const navLinks = document.querySelector(".nav-links"); // Seleziona l'elemento
-        if (window.innerWidth <= 500)
-            navLinks.style.transform = "translateX(-9%)";  
-        else navLinks.style.transform = "translateX(3%)"; 
+        document.getElementById("profileMenu").style.display = "block";
     }
 });
 
 function toggleProfileMenu() {
     document.getElementById("profileMenu").classList.toggle("active");
 }
+
+function toggleSidebar() {
+    const sidebar = document.getElementById("sidebar");
+    sidebar.classList.toggle("active");
+}
+
 
 checkLanguage();
 
@@ -70,10 +72,19 @@ async function loadImage(recordID) {
       const attachment = data.records[0].fields.Photo;
       if (attachment && attachment.length > 0) {
         const imageUrl = attachment[0].url;
-        document.getElementById('profile-btn').style.backgroundImage = `url(${imageUrl})`;
+        document.getElementById('profileMenu').style.backgroundImage = `url(${imageUrl})`;
       } 
     } catch (error) {
       console.error("Errore durante la chiamata API:", error);
+    }
+}
+
+function goHome(){
+    const lang = localStorage.getItem("lang") || "it";
+    if (lang === "it") {
+        window.location.href = "/Html/Ita/main_page.html";
+    } else if (lang === "en") {
+        window.location.href = "/Html/Eng/main_page.html";
     }
 }
 
@@ -92,14 +103,17 @@ function changeLanguagePhone() {
 }
 
 document.getElementById("language-select").addEventListener("change", changeLanguage);
-document.getElementById("language-select-phone").addEventListener("change", changeLanguagePhone);
-document.getElementById("profile-btn").addEventListener("click", toggleProfileMenu);
+document.getElementById("profileMenu").addEventListener("click", toggleProfileMenu);
 document.getElementById("logout-btn").addEventListener("click", () => {
     logout();
 });
 
+document.getElementById("burger").addEventListener("click", toggleSidebar);
+document.getElementById("close-btn").addEventListener("click", toggleSidebar);
+document.getElementById("title").addEventListener("click", goHome);
+document.getElementById("logo").addEventListener("click", goHome);
+
 function checkLanguage() {
     const lang = localStorage.getItem("lang") || "it"; // Default to Italian if no language is set
     document.getElementById("language-select").value = lang;
-    document.getElementById("language-select-phone").value = lang;
 };
