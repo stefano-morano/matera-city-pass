@@ -7,13 +7,12 @@ onAuthStateChanged(auth, (user) => {
     if (user) {
         fetchUser(user.email);
         document.getElementById("loginBtn").style.display = "none";
-        document.getElementById("profileMenu").style.display = "block";
+        document.getElementById("logout-btn").style.display = "block";
+        document.getElementById("profile-image").style.display = "block";
+        document.getElementById("profile-button").style.display = "block";
+    } else {
     }
 });
-
-function toggleProfileMenu() {
-    document.getElementById("profileMenu").classList.toggle("active");
-}
 
 function toggleSidebar() {
     const sidebar = document.getElementById("sidebar");
@@ -72,7 +71,7 @@ async function loadImage(recordID) {
       const attachment = data.records[0].fields.Photo;
       if (attachment && attachment.length > 0) {
         const imageUrl = attachment[0].url;
-        document.getElementById('profileMenu').style.backgroundImage = `url(${imageUrl})`;
+        document.getElementById('profile-image').src = imageUrl;
       } 
     } catch (error) {
       console.error("Errore durante la chiamata API:", error);
@@ -103,14 +102,12 @@ function changeLanguagePhone() {
 }
 
 document.getElementById("language-select").addEventListener("change", changeLanguage);
-document.getElementById("profileMenu").addEventListener("click", toggleProfileMenu);
 document.getElementById("logout-btn").addEventListener("click", () => {
     logout();
 });
 
 document.getElementById("burger").addEventListener("click", toggleSidebar);
 document.getElementById("close-btn").addEventListener("click", toggleSidebar);
-document.getElementById("title").addEventListener("click", goHome);
 document.getElementById("logo").addEventListener("click", goHome);
 
 function checkLanguage() {

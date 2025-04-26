@@ -3,10 +3,6 @@
         &#9776;
     </div>
 
-    <div class="title" id="title">
-        Matera City Pass
-    </div>
-
     <div class="logo" id="logo">
         <img src="/assets/logo.png" alt="Matera City Pass">
     </div>
@@ -18,23 +14,26 @@
         <ul class="sidebar-links">
             <li><a href="/Html/Ita/main_page.html">Home</a></li>
             <li><a href="/Html/Ita/loading.html">Pass</a></li>
+            <li><a href="/Html/Ita/payment.html">Prezzi</a></li>
             <li><a href="https://lu.ma/materaevents">Eventi</a></li>
             <li><a href="#">Blog</a></li>
             <li><a href="/Html/Ita/contacts.html">Contatti</a></li>
         </ul>
 
         <div class="sidebar-bottom">
-            <select id="language-select" class="language-select-phone">
-                <option value="it">🇮🇹 Italiano</option>
-                <option value="en">🇬🇧 English</option>
-            </select>
+            
 
             <button onclick="window.location.href='/Html/Ita/login.html'" id="loginBtn">Accedi</button>
 
-            <div id="profileMenu" style="display:none;">
-                <a href="/Html/Ita/profile.html">Profilo</a>
-                <a href="#" id="logout-btn">Esci</a>
-            </div>
+            <ul class="sidebar-links-bottom">
+                <li><img id="profile-image" style="display: none;"></li>
+                <select id="language-select" class="language-select-phone">
+                    <option value="it">🇮🇹 Italiano</option>
+                    <option value="en">🇬🇧 English</option>
+                </select>
+                <li><a href="/Html/Ita/profile.html" id="profile-button" style="display: none;">Profilo</a></li>
+                <li><a href="#" id="logout-btn" style="display: none;">Esci</a></li>
+            </ul>
         </div>
     </div>
 </nav>

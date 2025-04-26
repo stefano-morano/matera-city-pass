@@ -3,7 +3,7 @@ import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/fi
 import {AIRTABLE_API_KEY, BASE_ID, TABLE_PASS, TABLE_USER} from "./airtable-config.js";
 import { loadNavbar } from "./navbar-loader.js";
 
-const lang = localStorage.getItem("lang");
+const lang = localStorage.getItem("lang") || "it"; // Imposta la lingua predefinita su italiano
 
 function loadPage(name) {
     if (lang === "it") {
@@ -57,7 +57,19 @@ onAuthStateChanged(auth, (user) => {
         );
     } else {
         console.log("Nessun utente loggato");
-        loadPage("login");
+        document.getElementById("zero").addEventListener("click", function() {
+            loadPage("loading");
+        });
+        document.getElementById("first").addEventListener("click", function() {
+            loadPage("loading");
+        });
+        document.getElementById("second").addEventListener("click", function() {
+            loadPage("loading");
+        });
+        document.getElementById("third").addEventListener("click", function() {
+            loadPage("loading");
+        });
+        document.getElementById("zero-card").style.display = "block";
     }
 });
 
@@ -172,9 +184,14 @@ async function fetchFirstPayment(email) {
             const userRecord = data.records[0].fields; // Prende il primo record trovato
             let type = userRecord["Tipo Pass"];
             let active = userRecord["Stato Pass"];
-            if (active == "Attivo" && type !== 0) {
-                loadPage("pass");
+            
+            if (active == "Attivo") {
+                document.getElementById("zero").disabled = true;
+                document.getElementById("first").disabled = true;
+                document.getElementById("second").disabled = true;
+                document.getElementById("third").disabled = true;
             }
+            
             if (type == 0) {
                 document.getElementById("zero-card").style.display = "block";
             }

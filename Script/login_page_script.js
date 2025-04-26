@@ -3,7 +3,7 @@ import { signInWithEmailAndPassword, sendPasswordResetEmail, onAuthStateChanged 
 import {AIRTABLE_API_KEY, BASE_ID, TABLE_USER} from "./airtable-config.js";
 import { loadNavbar } from "./navbar-loader.js";
 
-const lang = localStorage.getItem("lang");
+const lang = localStorage.getItem("lang") || "it"; // Imposta la lingua predefinita su italiano
 
 function loadPage(name) {
     if (lang === "it") {

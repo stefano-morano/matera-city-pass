@@ -1,7 +1,7 @@
 /* NAVBAR */
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: inline;
     align-items: center;
     position: fixed;
     top: 0;
@@ -17,19 +17,9 @@
     cursor: pointer;
 }
 
-.title {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-62%);
-    font-weight: bold;
-    font-size: 20px;
-    color: black;
-    cursor: pointer;
-}
-
 .logo img {
     height: 40px;
-    transform: translateX(-90%);
+    margin-left: 15px;
     cursor: pointer;
 }
 
@@ -62,7 +52,8 @@
     z-index: 10;
 }
 
-.sidebar-links {
+.sidebar-links,
+.sidebar-links-bottom {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -71,24 +62,26 @@
     flex-direction: column;
 }
 
-.sidebar-links li {
+.sidebar-links li{
     padding: 16px 24px;
     border-bottom: 1px solid #eee;
 }
 
-.sidebar-links a {
+.sidebar-links a{
     text-decoration: none;
     color: black;
     font-weight: bold;
 }
 
-.sidebar-links a:hover {
+.sidebar-links a:hover,
+.sidebar-links-bottom a:hover {
     color: #AB8E78;
 }
 
 .sidebar-bottom {
     padding: 16px 24px;
     border-top: 1px solid #eee;
+    margin-bottom: 50px;
 }
 
 .language-select-phone {
@@ -98,25 +91,45 @@
     padding: 6px 12px;
     width: 100%;
     margin-bottom: 16px;
+    margin-top: 16px;
     cursor: pointer;
     border: none;
 }
 
-.sidebar-bottom button,
+.sidebar-bottom button{
+    background-color: #AB8E78;
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 12px 12px;
+    width: 100%;
+    margin-bottom: 16px;
+    cursor: pointer;
+    border: none;
+    color: white;
+    font-weight: bold;
+}
+
 .sidebar-bottom a {
     display: block;
     margin-bottom: 10px;
+    text-decoration: none;
     background: none;
     border: none;
+    padding: 6px 6px;
+    font-weight: bold;
     font-size: 16px;
     cursor: pointer;
-    color: #AB8E78;
+    color: black;
     text-align: left;
     width: 100%;
 }
 
-.sidebar-bottom{
-    transform: translateY(-50%);
+.sidebar-bottom img {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 10px;
+    margin: 0 auto;
+    border-radius: 50%;
 }
 
 /* MEDIA QUERY */
@@ -130,10 +143,6 @@
     }
 
     .title {
-        font-size: 20px;
-    }
-
-    .logo img {
-        height: 35px;
+        font-size: 18px;
     }
 }

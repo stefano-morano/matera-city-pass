@@ -17,6 +17,7 @@ function loadNavbar() {
                     console.log("Modulo JavaScript caricato!");
                     if (currentPage === "login.html" || currentPage === "registration.html") {
                         document.getElementById("loginBtn").style.display = "none";
+                        document.getElementById("language-select").style.marginTop = "0px";
                     }
                 })
                 .catch(err => {

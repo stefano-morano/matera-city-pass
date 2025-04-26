@@ -3,8 +3,6 @@ import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/fi
 import {AIRTABLE_API_KEY, BASE_ID, TABLE_MERCHANTS} from "./airtable-config.js";
 import { loadNavbar } from "./navbar-loader.js";
 
-const lang = localStorage.getItem("lang");
-
 function loadPage(name) {
     if (lang === "it") {
         window.location.href = `/Html/Ita/${name}.html`;
@@ -13,6 +11,8 @@ function loadPage(name) {
         window.location.href = `/Html/Eng/${name}.html`;
     }
 }
+
+const lang = localStorage.getItem("lang") || "it"; // Imposta la lingua predefinita su italiano
 
 var login = false;
 var map;
@@ -29,40 +29,41 @@ onAuthStateChanged(auth, (user) => {
 
 window.onload = function() { 
     closePopup();
+    
     loadNavbar(); 
 };
 
 // Funzione per il recupero dei dati dai record di Airtable a seconda del filtro selezionato
-async function fetchCards(selectedFilter) {
+function fetchCards(selectedFilter) {
     const container = document.getElementById("cards-container");
 
-    try {
+    let url_merchants = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_MERCHANTS}`;
+    container.innerHTML = "";
 
-        let url_merchants = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_MERCHANTS}`;
-        container.innerHTML = "";
+    if (selectedFilter != null) {
+        url_merchants += `?filterByFormula=FIND("${selectedFilter}",{category})`;
+    }
 
-        if (selectedFilter != null) {
-            url_merchants += `?filterByFormula=FIND("${selectedFilter}",{category})`;
+    fetch(url_merchants, {
+        headers: {
+            "Authorization": `Bearer ${AIRTABLE_API_KEY}`,
+            "Content-Type": "application/json"
         }
-
-        const response = await fetch(url_merchants, {
-            headers: {
-                "Authorization": `Bearer ${AIRTABLE_API_KEY}`,
-                "Content-Type": "application/json"
-            }
-        });
-
+    })
+    .then(response => {
         if (!response.ok) {
             throw new Error(`Errore HTTP ${response.status}: ${response.statusText}`);
         }
-
-        const data = await response.json();
+        return response.json();
+    })
+    .then(data => {
         displayCards(data.records);
-
-    } catch (error) {
+    })
+    .catch(error => {
         console.error("Errore nel recupero dei dati:", error.message);
-    }
+    });
 }
+
 
 // Funzione per la visualizzazione e creazione delle card
 function displayCards(records) {
@@ -76,8 +77,8 @@ function displayCards(records) {
         if (state == 'Attivo'){
             const name = record.fields.Name;
             const address = record.fields.Address;
-            var info;
-            var description;
+            let info = '';
+            let description = '';
 
             if (lang == "it"){
                 info = record.fields["Discount ita"] || 'Nessuno sconto';
@@ -85,7 +86,7 @@ function displayCards(records) {
             }
 
             if (lang == "en"){
-                info = record.fields["Discount eng"] || 'No discount';
+                info = record.fields["Discount eng"]|| 'No discount';
                 description = record.fields["Description eng"] || 'No description';
             }
 

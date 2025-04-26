@@ -4,7 +4,7 @@ import {AIRTABLE_API_KEY, BASE_ID, TABLE_USER, TABLE_PASS} from "./airtable-conf
 
 import { loadNavbar } from "./navbar-loader.js";
 
-const lang = localStorage.getItem("lang");
+const lang = localStorage.getItem("lang") || "it"; // Imposta la lingua predefinita su italiano
 
 function loadPage(name) {
     if (lang === "it") {

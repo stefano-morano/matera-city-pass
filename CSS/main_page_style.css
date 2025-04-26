@@ -184,7 +184,6 @@ body {
     background-color: rgba(0, 0, 0, 0.7); /* Darken the background */
     display: none; /* Hidden by default */
     z-index: 999; /* Place it above the content */
-    display: none;
 }
 
 .popup {
