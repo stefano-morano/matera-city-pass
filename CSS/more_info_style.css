@@ -2,6 +2,7 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
+    height: 100vh;
     background: url('../assets/blur_bg.png') no-repeat center center/cover;
     color: #333;
 }

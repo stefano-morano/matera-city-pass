@@ -58,6 +58,9 @@ async function updateUser(email, nome, cognome, genere, nazionalita, telefono, d
         } else {
              rand = Math.floor(Math.random() * 5) + 6;
         }
+
+        let marketing = document.getElementById("marketing").checked;
+
         
         // ✏️ Aggiorna i dati dell'utente trovato
         const updateUrl = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_USER}/${recordId}`;
@@ -68,7 +71,8 @@ async function updateUser(email, nome, cognome, genere, nazionalita, telefono, d
             "Nazionalita": nazionalita,
             "Telefono": telefono,
             "Completato": true,
-            "Picture": rand
+            "Picture": rand,
+            "Promotions": marketing
         };
 
         if (dataNascita) {
@@ -110,9 +114,12 @@ async function validateForm() {
     const nazionalita = document.getElementById("countryDropdown").value;
     const cellulare = document.getElementById("telefono").value;
     const date = document.getElementById("data").value;
+    const privacy = document.getElementById("privacy").checked;
+    const terms = document.getElementById("termini").checked;
+    const cookie = document.getElementById("cookies").checked;
 
     // Controllo se i campi sono vuoti
-    if (!nome || !cognome || !genere || !nazionalita || !date) {
+    if (!nome || !cognome || !genere || !nazionalita || !date || !privacy || !terms || !cookie) {
         highlightRequiredFields();
         return;
     }

@@ -132,6 +132,37 @@ input[type="text"]:focus, input[type="date"]:focus {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Stile per il gruppo checkbox */
+.checkbox-group {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+}
+
+/* Stile per la checkbox */
+.checkbox-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* Stile per il label accanto alla checkbox */
+.checkbox-group label {
+    cursor: pointer;
+}
+
+/* Stile per i link dentro i label */
+.checkbox-group a {
+    color: #007BFF; /* Azzurro tipo link */
+    text-decoration: underline;
+}
+
+.checkbox-group a:hover {
+    text-decoration: none;
+}
+
 @media (max-width: 480px) {
     .container {
         width: 80%;

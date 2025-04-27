@@ -315,6 +315,15 @@ body {
 }
 /* --------------------------------------------------------------------------- */
 
+/* -------------------------- Footer ------------------------------ */
+footer {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+    color: #777;
+    text-align: center;
+}
+
 @media (max-width: 480px) {
     .banner {
         height: 55vw; /* Più spazio per il testo */
