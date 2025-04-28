@@ -165,7 +165,7 @@ async function fetchPassStatus(email) {
             const label = document.getElementById("stato-pass");
             const museo = document.getElementById("stato-musei");
             if (statoPass === "Scaduto") {
-                label.style.color = "red";
+                label.style.color = "#E30613";
                 museo.textContent = "0";
             } else {
                 const number = record.fields['Musei'];

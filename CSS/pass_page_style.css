@@ -8,7 +8,9 @@ body {
 }
 
 .container {
-    background: white;
+    background-image: url('../assets/popup-bg.png');
+    background-size: cover;
+    background-position: bottom right;  /* <-- centrata orizzontale, attaccata al basso */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
@@ -25,11 +27,12 @@ body {
     width: 34vh;
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid #AB8E78;
+    color: white;
+    border: 2px solid white;
 }
 
 #generateBtn {
-    background-color: #AB8E78;
+    background-color: #B75E17;
     color: white;
     border: none;
     padding: 20px 20px;
@@ -40,8 +43,8 @@ body {
     transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: #997457;
+#generateBtn:hover {
+    background-color: #F9AE10;
 }
 
 #qrContainer {
@@ -50,8 +53,18 @@ button:hover {
     justify-content: center;
 }
 
+#white {
+    color: white;
+    font-weight: bold;
+}
+
 .hidden {
     display: none;
+}
+
+#timer{
+    color: white;
+    font-weight: bold;
 }
 
 @media (max-width: 480px) {

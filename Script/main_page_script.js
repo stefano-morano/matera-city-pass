@@ -104,8 +104,6 @@ function displayCards(records) {
                 <img src="${imageUrl}" alt="${name}">
                 <div class="card-content">
                     <h3 id="title">${name}</h3>
-                    <p><strong>📍 ${address}</strong></p>
-                    <p>${info}</p>
                 </div>
             `;
 
@@ -121,10 +119,10 @@ function displayCards(records) {
 function expandCard(name, address, description, imageUrl, mapsLink, lat, lon, sconto) {
         // Set the content of the pop-up
         document.getElementById('popup-title').textContent = name; // Set Name
-        document.getElementById('popup-address').textContent = `📍 ${address}`; // Set Address
         document.getElementById('popup-description').textContent = description; // Set Description
         document.getElementById('popup-img').src = imageUrl; // Set Image
-        document.getElementById('popup-sconto').textContent = "✅ " + sconto; // Set link text
+        document.querySelector('#popup-address span').textContent = address; // Set Address
+        document.querySelector('#popup-sconto span').textContent = sconto;
 
         // Set the link for "Apri in Google Maps" (optional)
         let mapLink = `https://www.openstreetmap.org/?mlat=${lat}&mlon=${lon}#map=16/${lat}/${lon}`;
@@ -185,13 +183,16 @@ document.querySelectorAll(".filter").forEach(filter => {
     filter.addEventListener("click", function() {
         if (this.classList.contains("active")){
             this.classList.remove("active");
+            this.querySelector('span').style.color = 'black';
             filter = null;
             fetchCards(null);
             return;
         }
         document.querySelectorAll(".filter").forEach(f => f.classList.remove("active"));
         this.classList.add("active");
+        this.querySelector('span').style.color = '#B75E17';
         filter = this.dataset.value;
+
         console.log("Filtro selezionato:", filter);
         fetchCards(filter);
     });

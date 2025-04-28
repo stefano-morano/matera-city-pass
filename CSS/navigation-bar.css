@@ -75,7 +75,7 @@
 
 .sidebar-links a:hover,
 .sidebar-links-bottom a:hover {
-    color: #AB8E78;
+    color: #B75E17;
 }
 
 .sidebar-bottom {
@@ -85,7 +85,7 @@
 }
 
 .language-select-phone {
-    background-color: #c7c6aa;
+    background-color: #5D935580;
     font-size: 16px;
     border-radius: 10px;
     padding: 6px 12px;
@@ -97,7 +97,7 @@
 }
 
 .sidebar-bottom button{
-    background-color: #AB8E78;
+    background-color: #B75E17;
     font-size: 16px;
     border-radius: 10px;
     padding: 12px 12px;

@@ -61,13 +61,13 @@ input[type="email"], input[type="password"] {
 }
 
 input[type="email"]:focus, input[type="password"]:focus {
-    border-color: #AB8E78;
+    border-color: #B75E17;
 }
 
 .button {
     width: 100%;
     padding: 10px;
-    background-color: #AB8E78;
+    background-color: #B75E17;
     border: none;
     color: white;
     margin-top: 40px;
@@ -78,7 +78,7 @@ input[type="email"]:focus, input[type="password"]:focus {
 }
 
 .button:hover {
-    background-color: #997457;
+    background-color: #F9AE10;
 }
 
 .login-link, .reset-link {
@@ -88,7 +88,7 @@ input[type="email"]:focus, input[type="password"]:focus {
 }
 
 .login-link a, .reset-link a {
-    color: #AB8E78;
+    color: #B75E17;
     text-decoration: none;
 }
 

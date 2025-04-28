@@ -66,7 +66,7 @@ const registerUser = async () => {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       console.log("User registered:", userCredential.user);
-      log_msg.style.color = "#AB8E78";
+      log_msg.style.color = "#B75E17";
       if (lang === "it") {
         log_msg.innerText = "Registrazione in corso...";
       }

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/CSS/main_page_style.css">
     <link rel="stylesheet" href="/CSS/navigation-bar.css">
     <link rel="icon" href="/assets/favicon.png" type="image/png">
+    <meta name="color-scheme" content="light">
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -15,34 +16,41 @@
     <!-- Upper banner -->
     <div class="banner">
         <div class="banner-content">
-            <h1>The perfect guide to Matera</h1>
-            <p>Explore, enjoy, and save with our exclusive offers</p>
-            <button class="discover-btn" id="discover-btn">Discover more</button>
+            <h1>The Perfect Guide to Matera</h1>
+            <p>Discover, enjoy and save with our exclusive offers</p>
+            <button class="discover-btn" id="discover-btn">Discover More</button>
         </div>
     </div>
 
-    <!-- Filtri di ricerca -->
+    <!-- Search Filters -->
     <div class="filter-container">
         <div class="filter" data-value="Ristoranti">
-            <img src="/assets/Icons/restaurant.svg" alt="Ristoranti">
             <span>Restaurants</span>
         </div>
         <div class="filter" data-value="Bar">
-            <img src="/assets/Icons/bar.svg" alt="Bar">
             <span>Bars</span>
         </div>
-        <div class="filter" data-value="Pub">
-            <img src="/assets/Icons/pub.svg" alt="Pub">
-            <span>Pubs</span>
+        <div class="filter" data-value="Caffè">
+            <span>Cafés</span>
         </div>
-        <div class="filter" data-value="Cultura">
-            <img src="/assets/Icons/museum.svg" alt="Cultura">
-            <span>Culture</span>
+        <div class="filter" data-value="Cultura e Musei">
+            <span>Culture and Museums</span>
         </div>
-        <div class="filter" data-value="Experience">
-            <img src="/assets/Icons/experience.svg" alt="Experience">
-            <span>Experience</span>
+        <div class="filter" data-value="Esperienza">
+            <span>Experiences</span>
         </div>
+        <div class="filter" data-value="Accoglienza">
+            <span>Accommodation</span>
+        </div>
+        <div class="filter" data-value="Shopping">
+            <span>Shopping</span>
+        </div>
+        <!--<div class="filter" data-value="Street Food">
+            <span>Street Food</span>
+        </div>
+        <div class="filter" data-value="Transport">
+            <span>Transport</span>
+        </div>-->
     </div>
 
     <!-- Search Bar -->
@@ -54,8 +62,8 @@
     <div id="overlay" class="overlay"></div>
 
     <!-- Card Pop-up -->
-    <div id="popup" class="popup" style="display: none;">
-        <!-- Title centered -->
+    <div id="popup" class="popup">
+        <!-- Centered Title -->
         <h2 id="popup-title">Name</h2>
     
         <!-- Upper section: image left, map right -->
@@ -67,8 +75,15 @@
         <!-- Lower section: description, address, buttons -->
         <div class="down">
             <p id="popup-description">Description</p>
-            <p id="popup-address"><strong>📍 Address</strong></p>
-            <p id="popup-sconto"><strong>💰 Discount</strong></p>
+            <p id="popup-address">
+                <img src="/assets/Icons/address-icon.png" alt="Address" class="icon-small">
+                <span></span>
+            </p>
+            
+            <p id="popup-sconto">
+                <img src="/assets/Icons/discount-icon.png" alt="Discount" class="icon-small">
+                <span></span>
+            </p>
     
             <div id="popup-buttons">
                 <button id="popup-link">Google Maps</button>
@@ -76,14 +91,18 @@
             </div>
         </div>
     </div>
-    
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script type="module" src="/Script/main_page_script.js"></script>
+
+    <footer>
+        © Alexander Maffei 2025 | Unique Taxpayer Reference: 1512541943 | 71 Stapleton Road, BR6 9TQ, Orpington, UK
+    </footer>
+
     <script>
         if (localStorage.getItem('lang') == "it"){
             window.location.href = "/Html/Ita/main_page.html";
         } 
     </script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script type="module" src="/Script/main_page_script.js"></script>
 </body>
 </html>

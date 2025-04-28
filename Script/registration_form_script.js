@@ -137,7 +137,7 @@ async function validateForm() {
 function highlightRequiredFields(){
     const requiredFields = document.querySelectorAll(".obbligatorio");
     requiredFields.forEach(field => {
-        field.style.color = "red";
+        field.style.color = "#E30613";
         field.style.fontWeight = "bold";
     });
 }
