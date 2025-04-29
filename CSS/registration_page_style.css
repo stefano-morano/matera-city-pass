@@ -10,8 +10,8 @@ body {
     background-color: #f4f4f9;
     background: url('../assets/blur_bg.png') no-repeat center center/cover;
     display: flex;
-    align-items: center;
-    height: 100vh;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .container {
@@ -19,10 +19,12 @@ body {
     padding: 20px 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    height: 60%;
-    margin: 0 auto;
+    width: 90%;
     max-width: 400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 h2 {
@@ -55,13 +57,6 @@ input[type="email"], input[type="password"] {
     transition: border-color 0.3s;
 }
 
-.log-msg{
-    color: #E30613;
-    text-align: center;
-    margin-top: 30px;
-    font-weight: bold;
-}
-
 input[type="email"]:focus, input[type="password"]:focus {
     border-color: #B75E17;
 }
@@ -83,6 +78,13 @@ input[type="email"]:focus, input[type="password"]:focus {
     background-color: #F9AE10;
 }
 
+.log-msg {
+    color: #E30613;
+    text-align: center;
+    margin-top: 30px;
+    font-weight: bold;
+}
+
 .login-link {
     text-align: center;
     margin-top: 20px;
@@ -101,7 +103,8 @@ input[type="email"]:focus, input[type="password"]:focus {
 @media (max-width: 480px) {
     .container {
         width: 90%;
-        height: 75vh;
+        padding: 15px;
+        margin-top: 15vh;
     }
 
     .nav-links {

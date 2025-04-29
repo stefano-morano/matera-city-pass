@@ -2,6 +2,7 @@ import { auth } from "./firebase-config.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import {AIRTABLE_API_KEY, BASE_ID, TABLE_PASS, TABLE_USER} from "./airtable-config.js";
 import { loadNavbar } from "./navbar-loader.js";
+import { loadFooter } from "./footer.js";
 
 const lang = localStorage.getItem("lang") || "it"; // Imposta la lingua predefinita su italiano
 
@@ -16,6 +17,7 @@ function loadPage(name) {
 
 window.onload = function() {
     loadNavbar();
+    loadFooter();
 }
 
 // Controllo stato utente
@@ -127,7 +129,8 @@ async function updatePass(email) {
 
             const updateData = {
                 fields: {
-                    "Tipo Pass": ore
+                    "Tipo Pass": ore,
+                    "Musei": 0
                 }
             };
 
@@ -185,7 +188,7 @@ async function fetchFirstPayment(email) {
             let type = userRecord["Tipo Pass"];
             let active = userRecord["Stato Pass"];
             
-            if (active == "Attivo") {
+            if (active == "Attivo" && type != 0) {
                 document.getElementById("zero").disabled = true;
                 document.getElementById("first").disabled = true;
                 document.getElementById("second").disabled = true;

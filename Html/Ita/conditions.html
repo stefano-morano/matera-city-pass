@@ -27,7 +27,6 @@
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 900px;
             overflow: auto;
             width: 100%;
             height: 85vh;
@@ -58,6 +57,25 @@
         img {
             height: 50px;
             margin-bottom: 10px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+                overflow: auto;
+            }
+
+            h1 {
+                font-size: 1rem;
+            }
+
+            h2 {
+                font-size: 0.8rem;
+            }
+
+            p, li {
+                font-size: 0.7rem;
+            } 
         }
     </style>
     <link rel="icon" href="/assets/favicon.png" type="image/png">

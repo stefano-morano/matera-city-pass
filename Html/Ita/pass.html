@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/CSS/pass_page_style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <link rel="stylesheet" href="/CSS/navigation-bar.css">
+    <link rel="stylesheet" href="/CSS/footer.css">
     <link rel="icon" href="/assets/favicon.png" type="image/png">
 </head>
 <body>
@@ -22,6 +23,8 @@
         <div id="qrContainer"></div>
         <p id="timer" class="hidden">Tempo rimanente: <span id="countdown">60</span>s</p>
     </div>
+
+    <footer id="footer" style="margin-bottom: 0;"></footer>
     <script>
         if (localStorage.getItem('lang') == "en"){
             window.location.href = "/Html/Eng/pass.html";

@@ -6,6 +6,7 @@
     <title>Profile</title>
     <link rel="stylesheet" href="/CSS/profile_style.css">
     <link rel="stylesheet" href="/CSS/navigation-bar.css">
+    <link rel="stylesheet" href="/CSS/footer.css">
     <link rel="icon" href="/assets/favicon.png" type="image/png">
 </head>
 
@@ -52,6 +53,13 @@
                 <input type="text" id="telefono">
             </div>
 
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="marketing">
+                <label for="marketing">
+                    I agree to receive marketing communications
+                </label>
+            </div>
+
             <div class="state">
                 <label class="info">Pass Status:</label>
                 <label id="stato-pass" class="info">Loading...</label>
@@ -75,6 +83,8 @@
             
         </form>
     </div>
+
+    <footer id="footer" style="margin-bottom: 0;"></footer>
     <script type="module" src="/Script/profile_script.js"></script>
     <script>
         if (localStorage.getItem('lang') == "it"){

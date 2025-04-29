@@ -2,6 +2,7 @@ import {auth} from "./firebase-config.js";
 import {onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import {AIRTABLE_API_KEY, BASE_ID, TABLE_USER, TABLE_PASS, TABLE_PHOTOS} from "./airtable-config.js";
 import { loadNavbar } from "./navbar-loader.js";
+import { loadFooter } from "./footer.js";
 
 const lang = localStorage.getItem("lang") || "it"; // Imposta la lingua predefinita su italiano
 
@@ -16,6 +17,7 @@ function loadPage(name) {
 
 window.onload = function() {
     loadNavbar();
+    loadFooter();
 }
 
 var user_email;
@@ -218,6 +220,8 @@ async function updateUser(email, nome, cognome, genere, nazionalita, telefono, d
                 rand = Math.floor(Math.random() * 5) + 6;
             }
         }
+
+        let marketing = document.getElementById("marketing").checked;
         
         const updateUrl = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_USER}/${recordId}`;
         const fieldsToUpdate = {
@@ -225,7 +229,8 @@ async function updateUser(email, nome, cognome, genere, nazionalita, telefono, d
             "Cognome": cognome,
             "Genere": genere,
             "Nazionalita": nazionalita,
-            "Telefono": telefono
+            "Telefono": telefono,
+            "Promotions": marketing
         };
 
         if (dataNascita) {

@@ -2,13 +2,16 @@ body {
     font-family: Arial, sans-serif;
     background: url('../assets/payment_bg.png') no-repeat center center/cover;
     justify-content: center; /* Centra verticalmente */
-    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     margin: 0;
 }
 
 .container {
     text-align: center;
     display: flex;
+    flex: 1;
     flex-direction: column;
     justify-content: center;
     overflow: auto;
@@ -26,7 +29,7 @@ body {
     margin-top: 70px;
     margin-bottom: 40px;
     color: white;
-    width: 50%;
+    width: 90%;
 }
 
 .cards {

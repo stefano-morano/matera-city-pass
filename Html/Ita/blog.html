@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../assets/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/CSS/footer.css">
     <title>Manutenzione</title>
     <style>
         * {
@@ -21,12 +22,15 @@
         }
 
         .container {
-            background: rgba(0, 0, 0, 0.4);
+            background: url('/assets/card-bg.png') no-repeat center center;
+            background-size: cover;
             color: white;
-            padding: 5%;
-            width: 40%;
+            padding: 20px;
+            width: 90%;
+            max-width: 500px;
             border-radius: 10px;
             text-align: center;
+            margin: 0 auto;
         }
 
         .logo {
@@ -35,17 +39,19 @@
         }
 
         h1 {
+            color: black;
             font-size: 4rem;
             margin-bottom: 10px;
         }
 
         p {
+            color: black;
             font-size: 1.5rem;
             margin-bottom: 20px;
         }
 
         button {
-            background-color: #997457;
+            background-color: #B75E17;
             color: white;
             border: none;
             padding: 10px 20px;
@@ -85,6 +91,8 @@
         <p>In arrivo!</p>
         <button id="returnHome">Torna alla Home</button>
     </div>
+
+    <footer id="footer" style="margin-bottom: 0;"></footer>
     <script>
         // Funzione per reindirizzare alla home page
         function redirectToHome() {

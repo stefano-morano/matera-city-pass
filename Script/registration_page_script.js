@@ -1,7 +1,7 @@
 import { auth } from "./firebase-config.js";
 import { createUserWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import {AIRTABLE_API_KEY, BASE_ID, TABLE_USER, TABLE_PASS} from "./airtable-config.js";
-
+import { loadFooter } from "./footer.js";
 import { loadNavbar } from "./navbar-loader.js";
 
 const lang = localStorage.getItem("lang") || "it"; // Imposta la lingua predefinita su italiano
@@ -17,6 +17,7 @@ function loadPage(name) {
 
 window.onload = function() {
     loadNavbar();
+    loadFooter();
 }
 
 // Funzione che controlla tutti i parametri per la registrazione alla pressione del tasto

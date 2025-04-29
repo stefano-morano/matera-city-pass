@@ -2,6 +2,7 @@ import {auth} from "./firebase-config.js"
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import {AIRTABLE_API_KEY, BASE_ID, TABLE_MERCHANTS} from "./airtable-config.js";
 import { loadNavbar } from "./navbar-loader.js";
+import { loadFooter } from "./footer.js";
 
 function loadPage(name) {
     if (lang === "it") {
@@ -27,10 +28,17 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
+window.addEventListener('DOMContentLoaded', function() {
+    const filter = document.querySelector('.filter');
+    if (filter) {
+        filter.scrollLeft = 0;
+    }
+});
+
 window.onload = function() { 
     closePopup();
-    
     loadNavbar(); 
+    loadFooter();
 };
 
 // Funzione per il recupero dei dati dai record di Airtable a seconda del filtro selezionato
@@ -126,7 +134,8 @@ function expandCard(name, address, description, imageUrl, mapsLink, lat, lon, sc
 
         // Set the link for "Apri in Google Maps" (optional)
         let mapLink = `https://www.openstreetmap.org/?mlat=${lat}&mlon=${lon}#map=16/${lat}/${lon}`;
-        document.getElementById('popup-link').addEventListener('click', () => window.open(mapsLink, '_blank'));
+        let linkButton = document.getElementById('popup-link');
+        linkButton.onclick = () => window.open(mapsLink);
 
         // Display the pop-up and overlay
         document.getElementById('overlay').style.display = 'block';
@@ -188,7 +197,10 @@ document.querySelectorAll(".filter").forEach(filter => {
             fetchCards(null);
             return;
         }
-        document.querySelectorAll(".filter").forEach(f => f.classList.remove("active"));
+        document.querySelectorAll(".filter").forEach(f => {
+            f.classList.remove("active");
+            f.querySelector('span').style.color = 'black';
+        });
         this.classList.add("active");
         this.querySelector('span').style.color = '#B75E17';
         filter = this.dataset.value;

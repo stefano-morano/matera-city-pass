@@ -84,6 +84,18 @@ h1 {
     font-weight: bold;
 }
 
+.mail a {
+    text-decoration: none;
+    color: #B75E17;
+    font-weight: bold;
+}
+
+.mail {
+    display: flex;
+    justify-content: center; /* centro orizzontale */
+    align-items: center;
+}
+
 .section-title {
     width: fit-content;
     padding: 10px 20px;

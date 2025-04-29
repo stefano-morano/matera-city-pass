@@ -2,6 +2,7 @@ import {auth} from "./firebase-config.js"
 import {onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import {AIRTABLE_API_KEY, BASE_ID, TABLE_PASS, TABLE_USER} from "./airtable-config.js";
 import { loadNavbar } from "./navbar-loader.js";
+import { loadFooter } from "./footer.js";
 
 const lang = localStorage.getItem("lang") || "it"; // Imposta la lingua predefinita su italiano
 
@@ -16,6 +17,7 @@ function loadPage(name) {
 
 window.onload = function() {
     loadNavbar();
+    loadFooter();
 }
 
 var user_email = "";
@@ -78,8 +80,8 @@ document.getElementById("generateBtn").addEventListener("click", function() {
     // Crea il QR Code
     const qrCode = new QRCode(qrContainer, {
         text: randomString,
-        width: 128,
-        height: 128
+        width: 256,
+        height: 256
     });
 
     updateQR(user_email, randomString)

@@ -1,7 +1,7 @@
 /* Stili di base */
 body {
     font-family: Arial, sans-serif;
-    height: 90vh;
+    height: 100vh;
     margin: 0;
     background-color: #f4f4f9;
     background: url('../assets/blur_bg.png') no-repeat center center/cover;

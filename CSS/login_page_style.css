@@ -1,7 +1,6 @@
 /* Stili di base */
 * {
     margin: 0;
-    padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
@@ -10,8 +9,8 @@ body {
     background-color: #f4f4f9;
     background: url('../assets/blur_bg.png') no-repeat center center/cover;
     display: flex;
+    flex-direction: column;
     margin: 0;
-    align-items: center;
     height: 100vh;
 }
 
@@ -24,10 +23,12 @@ body {
     padding: 20px 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    height: 46vh;
+    width: 90%;
     max-width: 400px;
-    margin: 0 auto;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 h2 {
@@ -106,6 +107,7 @@ input[type="email"]:focus, input[type="password"]:focus {
     .container {
         width: 90%;
         height: 65vh;
+        margin-top: 15vh;
     }
 
     .nav-links {
