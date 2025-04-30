@@ -77,5 +77,6 @@ body {
         width: 70%;
         margin-top: 15vh;
         margin-bottom: 10vh;
+        height: auto;
     }
 }

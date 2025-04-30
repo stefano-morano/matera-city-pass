@@ -1,10 +1,9 @@
 body {
     font-family: Arial, sans-serif;
     background: url('../assets/payment_bg.png') no-repeat center center/cover;
-    justify-content: center; /* Centra verticalmente */
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
     margin: 0;
 }
 
@@ -14,32 +13,35 @@ body {
     flex: 1;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     overflow: auto;
-    margin: 0 auto;
+    margin: auto;
     padding: 20px;
-    max-width: 100%; /* Evita che il contenuto sia troppo largo su schermi grandi */
+    max-width: 100%;
 }
 
 .title {
     font-size: 5rem;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     padding: 10px;
     border-radius: 10px;
-    margin: 0 auto;
     margin-top: 70px;
-    margin-bottom: 40px;
     color: white;
     width: 90%;
 }
 
 .cards {
     display: flex;
-    flex-direction: inline;
-    justify-content: center;
-    overflow: auto;
-    margin: 0 auto;
+    flex-direction: row;
     gap: 20px;
+    overflow-x: hidden;        /* scroll orizzontale se serve */
+    overflow-y: hidden;
+    flex-wrap: nowrap;       /* ❗ non andare a capo */
+    padding: 10px;
+    margin: 0 auto;
+    max-width: 100%;
 }
+
 
 .card {
     padding: 20px;
@@ -47,31 +49,32 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
     transition: transform 0.3s;
-    width: 100%; /* Rende le card larghe quanto il contenitore */
+    width: 100%;
+    max-width: 300px;
 }
 
-#zero-card{
+#zero-card {
     background-image: url('../assets/Icons/payment-1.png');
     background-size: cover;
-    background-position: bottom right; /* <-- centrata orizzontale, attaccata al basso */
+    background-position: bottom right;
 }
 
-#first-card{
+#first-card {
     background-image: url('../assets/Icons/payment-2.png');
     background-size: cover;
-    background-position: bottom right;  /* <-- centrata orizzontale, attaccata al basso */
+    background-position: bottom right;
 }
 
-#second-card{
+#second-card {
     background-image: url('../assets/Icons/payment-3.png');
     background-size: cover;
-    background-position: bottom right;  /* <-- centrata orizzontale, attaccata al basso */
+    background-position: bottom right;
 }
 
-#third-card{
+#third-card {
     background-image: url('../assets/Icons/payment-4.png');
     background-size: cover;
-    background-position: bottom right;  /* <-- centrata orizzontale, attaccata al basso */
+    background-position: bottom right;
 }
 
 .price {
@@ -92,41 +95,38 @@ button {
 }
 
 button:hover {
-    background: #F9AE10; /* Variante più chiara per l'hover */
+    background: #F9AE10;
 }
 
-#zero-card{
+#zero-card {
     display: none;
 }
 
 @media (max-width: 480px) {
-
-    button {
-        width: 80%; /* Rende i bottoni larghi quanto il contenitore */
-        font-size: 1.1rem;
-    }
-    .container{
-        height: 100vh;
-        padding: 0;
+    .container {
+        padding: 20px;
+        margin-top: 50px;
     }
 
-    body{
-        height: 100vh;
-    }
-
-    .title{
-        font-size: 1.5rem;
-        width: 80%;
-        margin-top: 80px;
+    .title {
+        font-size: 1.8rem !important;
+        margin-top: 50px;
         margin-bottom: 20px;
+        width: 90%;
     }
 
-    .card{
-        width: 90%; /* Rende le card larghe quanto il contenitore */
+    .cards {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .card {
+        width: 90%;
         padding: 15px;
     }
 
-    .cards{
-        flex-direction: column;
+    button {
+        width: 80%;
+        font-size: 1.1rem;
     }
 }
