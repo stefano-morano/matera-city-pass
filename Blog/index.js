@@ -1,6 +1,4 @@
 
-const NOTION_DB_ID = '1c97ad6d500180b8911e000ce28e9777'; // Il tuo database ID
-const NOTION_TOKEN = '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'; // Il tuo token segreto
 
     fetch(`https://api.notion.com/v1/databases/${NOTION_DB_ID}/query`, {
       method: 'POST',
