@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Tutorial Accesso Scanner</title>
+  <link rel="icon" href="/assets/favicon_merchants.png" type="image/png">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+      background: url('../assets/payment_bg.png') no-repeat center/cover;
+    }
+
+    h1 {
+      text-align: center;
+      color: white;
+    }
+
+    .step {
+      background: white;
+      border-left: 4px solid #f9ae10;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .step h2 {
+      margin-top: 0;
+    }
+
+    a {
+      color: #B75E17;
+      text-decoration: underline;
+    }
+
+    .image {
+        width: 90%;
+        height: 90%;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    .image-container{
+        display: flex;
+        width: 15%;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        background: white;
+        border-radius: 20px;
+    }
+
+    button {
+    width: 30%;
+    padding: 10px;
+    background-color: #f9ae10;
+    border: none;
+    color: white;
+    display: none;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    }
+
+    .button_container{
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
+
+  </style>
+</head>
+<body>
+ <div class="image-container">
+    <img src="/assets/logo.png" alt="Matera City Pass" class="image">
+  </div>
+  <h1>Come accedere alla tua area privata</h1>
+
+  <div class="step">
+    <h2>1. Scansiona il QR Code</h2>
+    <p>Utilizza la fotocamera del tuo smartphone per scansionare il QR code che ti è stato fornito.</p>
+    <p>Questo ti aprirà direttamente la tua area personale.</p>
+  </div>
+
+  <div class="step">
+    <h2>2. Il QR non funziona?</h2>
+    <p>Se il QR code non si apre correttamente, vai manualmente su questo link:</p>
+    <p><strong><a href="https://www.materacitypass.com/Merchants" target="_blank">https://www.materacitypass.com/Merchants</a></strong></p>
+    <p>Una volta aperta la pagina, inserisci il <strong>codice riportato sotto il QR code</strong> stampato nel foglio.</p>
+  </div>
+
+  <div class="step">
+    <h2>3. Cosa puoi fare una volta dentro?</h2>
+    <p>Dalla tua area personale potrai:</p>
+    <ul>
+      <li>Visualizzare la tua <strong>dashboard</strong> (numero transazione, grafici, ...)</li>
+      <li>Aprire lo <strong>scanner QR code</strong> per le convalide</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <h2>3. Messaggi Scanner QR Code</h2>
+    <p>I tipi di messaggi che possono comparire sono:</p>
+    <ul>
+      <li><strong>"Pass gratuito valido ✅"</strong> se si scansiona un pass attivo gratuito</li>
+      <li><strong>"Pass a pagamento valido ✅"</strong> se si scansiona un pass attivo a pagamento</li>
+      <li><strong>"QR Code non valido ❌"</strong> se si scansiona un QR code che non può più essere utilizzato e quindi richiede la rigenerazione</li>
+      <li><strong>"Pass non attivo ❌"</strong> se si scansiona un pass non attivo</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <h2>4. Messaggi Scanner QR Code per <strong>MUSEI</strong></h2>
+    <p>I tipi di messaggi che possono comparire sono:</p>
+    <ul>
+      <li><strong>"Pass valido ✅ Sconto disponibile"</strong> se si scansiona un pass attivo gratuito oppure se il pass a pagamento ha terminato i ticket gratuiti</li>
+      <li><strong>"Pass valido ✅ Biglietto disponibile"</strong> se si scansiona un pass attivo a pagamento con dei biglietti gratuiti disponibili all'interno</li>
+      <li><strong>"QR Code non valido ❌"</strong> se si scansiona un QR code che non può più essere utilizzato e quindi richiede la rigenerazione</li>
+      <li><strong>"Pass non attivo ❌"</strong> se si scansiona un pass non attivo</li>
+    </ul>
+  </div>
+
+    <div class="button_container">
+        <button id="back">Indietro</button>
+    </div>
+
+  <script>
+    // Ottieni i parametri della URL
+    const params = new URLSearchParams(window.location.search);
+    var nome = params.get("azienda"); // Prende il valore di "nome"
+    checkName();
+
+    function checkName(){
+        if (nome){
+            document.getElementById("back").addEventListener("click", () => {
+                url = "index.html?azienda=" + nome;
+                window.location.href = url;
+            });
+            document.getElementById("back").style.display = "block";
+        }
+    }
+  </script>
+
+</body>
+</html>

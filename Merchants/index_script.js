@@ -11,7 +11,7 @@ function checkName() {
     if (nome) {
         checkTable();
     } else {
-        searchMode("Inserisci il codice dell'azienda");
+        searchMode("Inserisci il codice aziendale");
     }
 }
 
@@ -31,7 +31,7 @@ async function checkTable() {
         if (data.records.length > 0) {
             const record = data.records[0].fields;
             if (record["State"] == "Disattivo") {
-                searchMode("Azienda con servizio non attivo");
+                searchMode("Azienda non attiva");
                 return;
             }
             const button = document.getElementById("button_qr");
@@ -43,9 +43,10 @@ async function checkTable() {
             document.getElementById("input").style.display = "none";
             document.getElementById("button_qr").style.display = "block";
             document.getElementById("button_dashboard").style.display = "block";
+            document.getElementById("button_tutorial").style.display= "block";
             document.getElementById("log").innerText = "Benvenuto " + record["Name"] + "!";
         } else {
-            searchMode("Azienda non trovata. Riprova!");
+            searchMode("Azienda non trovata");
         }
     } catch (error) {
         console.error("Errore:", error);
@@ -68,5 +69,10 @@ function searchMode(text){
 
 document.getElementById("button_dashboard").addEventListener("click", () => {
     window.location.href = "dashboard.html?azienda=" + nome;
+}
+);
+
+document.getElementById("button_tutorial").addEventListener("click", () => {
+    window.location.href = "tutorial.html?azienda=" + nome;
 }
 );

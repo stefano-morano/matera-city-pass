@@ -70,9 +70,11 @@ document.getElementById("generateBtn").addEventListener("click", function() {
     const timerText = document.getElementById("timer");
     const countdownElement = document.getElementById("countdown");
     document.getElementById("generateBtn").classList.add("hidden");
+
     
     // Pulisce il contenitore QR
     qrContainer.innerHTML = "";
+    qrContainer.style.display = "flex";
     
     // Genera una stringa randomica
     const randomString = Math.random().toString(36).substr(2, 10);
@@ -80,8 +82,8 @@ document.getElementById("generateBtn").addEventListener("click", function() {
     // Crea il QR Code
     const qrCode = new QRCode(qrContainer, {
         text: randomString,
-        width: 256,
-        height: 256
+        width: 240,
+        height: 240
     });
 
     updateQR(user_email, randomString)
@@ -99,6 +101,7 @@ document.getElementById("generateBtn").addEventListener("click", function() {
         
         if (timeLeft <= 0) {
             clearInterval(countdown);
+            qrContainer.style.display = "none";
             qrContainer.innerHTML = "";
             timerText.classList.add("hidden");
             document.getElementById("generateBtn").classList.remove("hidden");

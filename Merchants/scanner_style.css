@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'Logo Font';
+    src: url('../assets/Steravina.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body { 
     text-align: center; 
     align-items: center;
@@ -6,7 +13,7 @@ body {
     justify-content: center;
     flex-direction: column;
     font-family: Arial, sans-serif; 
-    background: url('../assets/bg-blur.png') no-repeat center/cover;
+    background: url('../assets/payment_bg.png') no-repeat center/cover;
 }
 
 video { 
@@ -35,40 +42,35 @@ canvas {
     flex-direction: column;
     justify-content: center; /* Centra verticalmente */
     align-items: center; /* Centra orizzontalmente */
-    background-color: #c7c6aa;
+    background-color: #f9ae10;
     text-align: center;
     border-radius: 20px;
     margin: 0 auto;
 }
 
 h1 {
-    font-size: 30px;
+    font-size: 35px;
     font-weight: bold;
     padding: 10px;
     border-radius: 10px;
-    background: rgba(0, 0, 0, 0.3);
+    font-family: 'Logo Font', sans-serif;
     width: fit-content;
-    color: white;
+    color: black;
 }
 
 p {
-    font-size: 20px;
-    padding: 5px;
+    font-size: 35px;
+    padding: 10px;
     border-radius: 10px;
-    background: rgba(0, 0, 0, 0.2);
+    background: white;
     width: fit-content;
-    color: white;
+    color: black;
+    border: 2px solid #B75E17;
 }
 
 #nome{
     font-weight: bold;
-}
-
-#img {
-    width: 150px;
-    height: 150px;
-    margin-top: 30px;
-    border-radius: 50%;
+    border: 2px solid #B75E17;
 }
 
 #result {
@@ -80,7 +82,7 @@ p {
 #button {
     width: 60%;
     padding: 10px;
-    background-color: #AB8E78;
+    background-color: #B75E17;
     border: none;
     color: white;
     margin-top: 30px;
@@ -112,6 +114,6 @@ p {
     }
 
     video{
-        width: 30vh;
+        width: 35vh;
     }
 }

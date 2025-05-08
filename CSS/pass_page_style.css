@@ -48,14 +48,13 @@ body {
     transition: background-color 0.3s;
 }
 
-#generateBtn:hover {
-    background-color: #F9AE10;
-}
-
 #qrContainer {
     margin-top: 20px;
-    display: flex;
+    display: none;
     justify-content: center;
+    border: 5px solid white;
+    background-color: white;
+    border-radius: 10px;
 }
 
 #white {

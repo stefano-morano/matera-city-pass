@@ -6,31 +6,33 @@ body {
     justify-content: center;
     flex-direction: column;
     font-family: Arial, sans-serif; 
-    background: url('../assets/bg-blur.png') no-repeat center/cover;
+    background: url('../assets/payment_bg.png') no-repeat center/cover;
 }
 
 .container {
     width: 25%;
-    height: 50vh;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: center; /* Centra verticalmente */
     align-items: center; /* Centra orizzontalmente */
-    background-color: #c7c6aa;
+    background-color: #f9ae10;
     text-align: center;
     border-radius: 20px;
     margin: 0 auto;
 }
 
-h1 {
-    font-size: 2rem;
-    font-weight: bold;
-    width: 80%;
-    padding: 10px;
-    border-radius: 10px;
-    background: rgba(0, 0, 0, 0.3);
-    width: fit-content;
-    color: white;
+.image{
+    width: 50%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
 }
 
 p {
@@ -38,25 +40,26 @@ p {
     font-weight: bold;
     padding: 10px;
     border-radius: 10px;
-    background: rgba(0, 0, 0, 0.3);
-    width: fit-content;
-    color: white;
+    background: white;
+    border: solid #B75E17 2px;
+    width: 80%;
+    color: black;
 }
 
 input {
-    width: 70%;
-    padding: 20px;
+    width: 80%;
+    padding: 10px;
     font-size: 1.5rem;
     margin-top: 20px;
     margin-bottom: 20px;
-    border-radius: 5px;
-    border: 1px solid #AB8E78;
+    border-radius: 10px;
+    border: 2px solid #B75E17;
 }
 
 .button {
     width: 60%;
     padding: 10px;
-    background-color: #AB8E78;
+    background-color: #B75E17;
     border: none;
     color: white;
     margin-top: 30px;
@@ -67,11 +70,19 @@ input {
     transition: background-color 0.3s;
 }
 
+#button_dashboard{
+    display: none;
+}
+
+#button_tutorial{
+    display: none;
+}
+
 
 @media (max-width: 480px) {
     .container {
         width: 90%;
-        height: 50vh;
+        height: fit-content;
     }
     h1 {
         font-size: 1.5rem;
@@ -84,5 +95,12 @@ input {
     }
     .button {
         font-size: 1rem;
+        margin-top: 10px;
     }
+    .image{
+        width: 40%;
+        margin-bottom: 10px;
+        margin-top: 25px;
+    }
+    
 }

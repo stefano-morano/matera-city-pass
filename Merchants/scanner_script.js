@@ -16,7 +16,6 @@ const card = document.getElementById('card');
 const log = document.getElementById('log');
 const sconto = document.getElementById('sconto');
 const button = document.getElementById('button');
-const img = document.getElementById('img');
 const name_label = document.getElementById('nome');
 
 const params = new URLSearchParams(window.location.search);
@@ -29,8 +28,9 @@ let discount;
 let bool_museo;
 let recordID;
 let number_musei;
+let scanning = true;
 
-// Sincronizzazione fotocamera
+// Avvia la fotocamera
 if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   navigator.mediaDevices.getUserMedia({
     video: { facingMode: { ideal: "environment" } }
@@ -48,6 +48,8 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 }
 
 function scanQRCode() {
+  if (!scanning) return;
+
   if (video.readyState === video.HAVE_ENOUGH_DATA) {
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
@@ -55,53 +57,66 @@ function scanQRCode() {
     const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
     const qrCode = jsQR(imageData.data, imageData.width, imageData.height);
     if (qrCode) {
+      scanning = false;
       checkQRCodeInAirtable(qrCode.data);
       return;
     }
   }
+
   requestAnimationFrame(scanQRCode);
 }
 
+function waitForVideoAndScan() {
+  if (video.readyState === video.HAVE_ENOUGH_DATA) {
+    scanQRCode();
+  } else {
+    setTimeout(waitForVideoAndScan, 200);
+  }
+}
+
 async function checkQRCodeInAirtable(qrCode) {
-    const url = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_PASS}?filterByFormula={QR}='${qrCode}'`;
-    try {
-        const response = await fetch(url, {
-            headers: {
-                'Authorization': `Bearer ${AIRTABLE_API_KEY}`,
-                'Content-Type': 'application/json'
-            }
-        });
-        const data = await response.json();
-        if (data.records.length > 0) {
-            const record = data.records[0].fields;
-            recordID = data.records[0].id;
-            const statoQR = record["Stato QR"];
-            const statoPass = record["Stato Pass"];
-            const email = record["User"];
-            if (statoPass === "Attivo") {
-                if (statoQR === "Valido") {
-                    if (bool_museo) {
-                        number_musei = record["Musei"];
-                        if (number_musei > 0) {
-                            validMode(email);
-                        } else {
-                            unvalidMode("Ticket Musei esauriti ❌", email);
-                        }
-                    } else {
-                        validMode(email);
-                    }
-                } else {
-                    unvalidMode("QR Code non valido ❌", email);
-                }
+  const url = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_PASS}?filterByFormula={QR}='${qrCode}'`;
+  try {
+    const response = await fetch(url, {
+      headers: {
+        'Authorization': `Bearer ${AIRTABLE_API_KEY}`,
+        'Content-Type': 'application/json'
+      }
+    });
+    const data = await response.json();
+    if (data.records.length > 0) {
+      const record = data.records[0].fields;
+      recordID = data.records[0].id;
+      const statoQR = record["Stato QR"];
+      const statoPass = record["Stato Pass"];
+      const tipoPass = record["Tipo Pass"];
+      const gratis = !(tipoPass === 24 || tipoPass === 48 || tipoPass === 72);
+      console.log(statoQR + ' ' + statoPass + ' ' + tipoPass + ' ' + gratis);
+      const email = record["User"];
+      if (statoPass === "Attivo") {
+        if (statoQR === "Valido") {
+          if (bool_museo) {
+            number_musei = record["Musei"];
+            if (number_musei > 0) {
+              gratis ? validMode(email, "Pass valido\n✅\nSconto disponibile") : validMode(email, "Pass valido\n✅\nBiglietto disponibile");
             } else {
-                unvalidMode("Pass non attivo ❌", email);
+              validMode(email, "Pass valido\n✅\nSconto disponibile");
             }
+          } else {
+            gratis ? validMode(email, "Pass gratuito valido ✅") : validMode(email, "Pass a pagamento valido ✅");
+          }
         } else {
-            errorMode();
+          unvalidMode("QR Code non valido ❌", email);
         }
-    } catch (error) {
-        console.error("Errore nella richiesta:", error);
+      } else {
+        unvalidMode("Pass non attivo ❌", email);
+      }
+    } else {
+      errorMode();
     }
+  } catch (error) {
+    console.error("Errore nella richiesta:", error);
+  }
 }
 
 async function find_merch() {
@@ -125,7 +140,7 @@ async function find_merch() {
 }
 
 function findMusei(array) {
-    return array.includes("Musei");
+  return array.includes("Cultura e Musei");
 }
 
 async function find_user(email) {
@@ -139,8 +154,6 @@ async function find_user(email) {
       const record = data.records[0].fields;
       nome_user = record["Nome"];
       cognome_user = record["Cognome"];
-      let ID = record["Picture"];
-      loadImage(ID);
     } else {
       console.error("Utente non trovato!");
     }
@@ -167,8 +180,9 @@ async function completeTransaction(email) {
       }]
     })
   });
+
   const new_musei = number_musei - 1;
-  const response = await fetch(url_pass, {
+  await fetch(url_pass, {
     method: "PATCH",
     headers: {
       Authorization: `Bearer ${AIRTABLE_API_KEY}`,
@@ -183,29 +197,28 @@ async function completeTransaction(email) {
 }
 
 function scanMode() {
+  scanning = true;
   log.style.display = "none";
   sconto.style.display = "none";
   button.innerText = "Indietro";
-    button.onclick = () => {
+  button.onclick = () => {
     window.location.href = "index.html?azienda=" + code_azienda;
   };
-  button.style.display = "display";
-  img.style.display = "none";
+  button.style.display = "block";
   name_label.style.display = "none";
   video.style.display = "block";
   canvas.style.display = "none";
   resultText.style.display = "block";
-  card.style.backgroundColor = "#c7c6aa";
-  requestAnimationFrame(scanQRCode);
+  card.style.backgroundColor = "#f9ae10";
+  waitForVideoAndScan();
 }
 
-function validMode(email) {
+function validMode(email, text) {
   card.style.backgroundColor = "#90EE90";
   video.style.display = "none";
   canvas.style.display = "none";
-  log.innerText = "Pass valido ✅";
+  log.innerText = text;
   log.style.display = "block";
-  img.style.display = "block";
   sconto.innerText = "Sconto: " + discount;
   sconto.style.display = "block";
   resultText.style.display = "none";
@@ -229,16 +242,15 @@ function unvalidMode(text, email) {
   video.style.display = "none";
   canvas.style.display = "none";
   log.style.display = "block";
-  img.style.display = "block";
   sconto.style.display = "none";
   resultText.style.display = "none";
   find_user(email).then(() => {
-    if (nome_user === undefined || cognome_user === undefined) {
-      nome_user = "Utente";
-      cognome_user = "Sconosciuto";
+    if (!nome_user || !cognome_user) {
+      name_label.style.display = "none";
+    } else {
+      name_label.innerText = nome_user + " " + cognome_user;
+      name_label.style.display = "block";
     }
-    name_label.innerText = nome_user + " " + cognome_user;
-    name_label.style.display = "block";
     button.onclick = scanMode;
     button.innerText = "Scansiona un altro QR Code";
     button.style.display = "block";
@@ -251,7 +263,6 @@ function errorMode() {
   video.style.display = "none";
   canvas.style.display = "none";
   log.style.display = "block";
-  img.style.display = "none";
   sconto.style.display = "none";
   resultText.style.display = "none";
   name_label.style.display = "none";
@@ -267,32 +278,3 @@ window.onload = () => {
   find_merch();
   scanMode();
 };
-
-//funzione per caricare l'immagine profilo utente
-async function loadImage(recordID) {
-
-    const url = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_PHOTOS}?filterByFormula={ID}='${recordID}'`;
-
-    try {
-      const response = await fetch(url, {
-        headers: {
-          Authorization: `Bearer ${AIRTABLE_API_KEY}`
-        }
-      });
-
-      const data = await response.json();
-
-      if (data.records.length === 0) {
-        console.log("Nessun record trovato per questo ID.");
-        return;
-      }
-
-      const attachment = data.records[0].fields.Photo;
-      if (attachment && attachment.length > 0) {
-        const imageUrl = attachment[0].url;
-        img.src = imageUrl;
-      } 
-    } catch (error) {
-      console.error("Errore durante la chiamata API:", error);
-    }
-}
