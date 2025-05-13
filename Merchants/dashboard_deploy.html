@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Mercante</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="dashboard">
+    <div class="nav">
+      <button id="prevWeek">&larr;</button>
+      <h2 id="weekRangeLabel">Settimana del ...</h2>
+      <button id="nextWeek">&rarr;</button>
+    </div>
+
+    <div class="charts">
+      <canvas id="lineChart"></canvas>
+      <canvas id="genderPieChart"></canvas>
+      <canvas id="countryBarChart"></canvas>
+      <canvas id="ageTimeChart"></canvas>
+    </div>
+  </div>
+
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>

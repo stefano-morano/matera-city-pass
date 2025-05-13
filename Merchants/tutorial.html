@@ -75,6 +75,14 @@
         display: flex;
     }
 
+    #giallo{
+      color: #f9ae10;
+    }
+
+    #blu{
+      color: #2d4986;
+    }
+
 
   </style>
 </head>
@@ -110,10 +118,11 @@
     <h2>3. Messaggi Scanner QR Code</h2>
     <p>I tipi di messaggi che possono comparire sono:</p>
     <ul>
-      <li><strong>"Pass gratuito valido ✅"</strong> se si scansiona un pass attivo gratuito</li>
-      <li><strong>"Pass a pagamento valido ✅"</strong> se si scansiona un pass attivo a pagamento</li>
-      <li><strong>"QR Code non valido ❌"</strong> se si scansiona un QR code che non può più essere utilizzato e quindi richiede la rigenerazione</li>
-      <li><strong>"Pass non attivo ❌"</strong> se si scansiona un pass non attivo</li>
+      <li><strong>"Pass valido ✅"</strong> se si scansiona un pass attivo.</li>
+      <li><strong>"QR Code non valido ❌"</strong> se si scansiona un QR code che non può più essere utilizzato e quindi richiede la rigenerazione.</li>
+      <li><strong>"Pass non attivo ❌"</strong> se si scansiona un pass non attivo.</li>
+      <li><strong>"Pass non trovato ❌"</strong> se si scansiona un QR code che non fa parte dei pass presenti nella piattaforma.</li>
+      
     </ul>
   </div>
 
@@ -121,10 +130,11 @@
     <h2>4. Messaggi Scanner QR Code per <strong>MUSEI</strong></h2>
     <p>I tipi di messaggi che possono comparire sono:</p>
     <ul>
-      <li><strong>"Pass valido ✅ Sconto disponibile"</strong> se si scansiona un pass attivo gratuito oppure se il pass a pagamento ha terminato i ticket gratuiti</li>
-      <li><strong>"Pass valido ✅ Biglietto disponibile"</strong> se si scansiona un pass attivo a pagamento con dei biglietti gratuiti disponibili all'interno</li>
-      <li><strong>"QR Code non valido ❌"</strong> se si scansiona un QR code che non può più essere utilizzato e quindi richiede la rigenerazione</li>
-      <li><strong>"Pass non attivo ❌"</strong> se si scansiona un pass non attivo</li>
+      <li><strong id="giallo">"Pass valido ✅"</strong> con sfondo <strong id="giallo">giallo</strong> se si scansiona un pass attivo gratuito oppure se il pass a pagamento ha terminato i ticket gratuiti.</li>
+      <li><strong id="blu">"Pass valido ✅"</strong> con sfondo <strong id="blu">blu</strong> se si scansiona un pass attivo a pagamento con dei biglietti gratuiti disponibili all'interno.</li>
+      <li><strong>"QR Code non valido ❌"</strong> se si scansiona un QR code che non può più essere utilizzato e quindi richiede la rigenerazione.</li>
+      <li><strong>"Pass non attivo ❌"</strong> se si scansiona un pass non attivo.</li>
+      <li><strong>"Pass non trovato ❌"</strong> se si scansiona un QR code che non fa parte dei pass presenti nella piattaforma.</li>
     </ul>
   </div>
 

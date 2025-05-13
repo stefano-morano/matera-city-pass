@@ -6,6 +6,7 @@ const TABLE_MERCHANTS = "Merchants";
 const params = new URLSearchParams(window.location.search);
 var nome = params.get("azienda"); // Prende il valore di "nome"
 checkName();
+var nome_completo;
 
 function checkName() {
     if (nome) {
@@ -45,6 +46,7 @@ async function checkTable() {
             document.getElementById("button_dashboard").style.display = "block";
             document.getElementById("button_tutorial").style.display= "block";
             document.getElementById("log").innerText = "Benvenuto " + record["Name"] + "!";
+            nome_completo = record["Name"];
         } else {
             searchMode("Azienda non trovata");
         }
@@ -68,7 +70,7 @@ function searchMode(text){
 }
 
 document.getElementById("button_dashboard").addEventListener("click", () => {
-    window.location.href = "dashboard.html?azienda=" + nome;
+    window.location.href = "dashboard.html?azienda=" + nome + "&nome=" + nome_completo;
 }
 );
 

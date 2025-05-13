@@ -4,8 +4,7 @@ import {
   TABLE_USER,
   TABLE_PASS,
   TABLE_MERCHANTS,
-  TABLE_TRANSACTIONS,
-  TABLE_PHOTOS
+  TABLE_TRANSACTIONS
 } from "../Script/airtable-config.js";
 
 const video = document.getElementById('camera');
@@ -98,12 +97,12 @@ async function checkQRCodeInAirtable(qrCode) {
           if (bool_museo) {
             number_musei = record["Musei"];
             if (number_musei > 0) {
-              gratis ? validMode(email, "Pass valido\n✅\nSconto disponibile") : validMode(email, "Pass valido\n✅\nBiglietto disponibile");
+              validMode(email, false);
             } else {
-              validMode(email, "Pass valido\n✅\nSconto disponibile");
+              validMode(email, true);
             }
           } else {
-            gratis ? validMode(email, "Pass gratuito valido ✅") : validMode(email, "Pass a pagamento valido ✅");
+            validMode(email, gratis);
           }
         } else {
           unvalidMode("QR Code non valido ❌", email);
@@ -181,7 +180,10 @@ async function completeTransaction(email) {
     })
   });
 
-  const new_musei = number_musei - 1;
+  let new_musei = number_musei - 1;
+
+  if (new_musei < 0) new_musei = 0;
+
   await fetch(url_pass, {
     method: "PATCH",
     headers: {
@@ -209,18 +211,30 @@ function scanMode() {
   video.style.display = "block";
   canvas.style.display = "none";
   resultText.style.display = "block";
-  card.style.backgroundColor = "#f9ae10";
+  card.style.justifyContent = 'center';
+  card.style.alignItems = 'center';
+  card.style.backgroundImage = "url('/assets/popup-bg.png')";
   waitForVideoAndScan();
 }
 
-function validMode(email, text) {
-  card.style.backgroundColor = "#90EE90";
+function validMode(email, free) {
+  if (free){
+    card.style.backgroundImage = 'none';
+    card.style.backgroundColor = "#f9ae10"; //giallo
+  } else {
+    card.style.backgroundImage = 'none';
+    card.style.backgroundColor = "#2d4986"; //blu
+  }
   video.style.display = "none";
   canvas.style.display = "none";
-  log.innerText = text;
+  log.innerText = "Pass valido ✅";
   log.style.display = "block";
-  sconto.innerText = "Sconto: " + discount;
-  sconto.style.display = "block";
+  if (bool_museo){
+    sconto.style.display = "none"
+  } else {
+    sconto.innerText = "Sconto: " + discount;
+    sconto.style.display = "block";
+  }
   resultText.style.display = "none";
   find_user(email).then(() => {
     name_label.innerText = nome_user + " " + cognome_user;
@@ -237,6 +251,7 @@ function validMode(email, text) {
 }
 
 function unvalidMode(text, email) {
+  card.style.backgroundImage = 'none';
   card.style.backgroundColor = "#FF7F7F";
   log.innerText = text;
   video.style.display = "none";
@@ -258,6 +273,7 @@ function unvalidMode(text, email) {
 }
 
 function errorMode() {
+  card.style.backgroundImage = 'none';
   card.style.backgroundColor = "#FF7F7F";
   log.innerText = "Pass non trovato ❌";
   video.style.display = "none";

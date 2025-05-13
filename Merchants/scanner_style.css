@@ -42,7 +42,9 @@ canvas {
     flex-direction: column;
     justify-content: center; /* Centra verticalmente */
     align-items: center; /* Centra orizzontalmente */
-    background-color: #f9ae10;
+    background-image: url('/assets/popup-bg.png');
+    background-size: cover;
+    background-position: bottom right;
     text-align: center;
     border-radius: 20px;
     margin: 0 auto;
@@ -55,7 +57,7 @@ h1 {
     border-radius: 10px;
     font-family: 'Logo Font', sans-serif;
     width: fit-content;
-    color: black;
+    color: white;
 }
 
 p {
