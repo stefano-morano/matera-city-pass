@@ -21,6 +21,7 @@ h1 {
 .info-container {
     max-width: 100%;
     margin: 30px auto;
+    margin-top: 80px;
     padding: 30px;
     border-radius: 15px;
     background-color: #f7f7f7;

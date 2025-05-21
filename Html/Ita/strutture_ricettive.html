@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matera City Pass</title>
+    <title>Strutture ricettive</title>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4VX2G6WWS"></script>
     <script>
@@ -19,47 +19,14 @@
     <meta name="color-scheme" content="light">
 </head>
 <body>
+    <div class="strutture">
+        <h1>Strutture ricettive</h1>
+    </div>
+
     <!-- Navigation Bar -->
     <div id="navbar"></div>
 
-    <!-- Upper banner -->
-    <div class="banner">
-        <div class="banner-content">
-            <h1>La guida perfetta per Matera</h1>
-            <p>Esplora, divertiti e risparmia con le nostre offerte esclusive</p>
-            <button class="discover-btn" id="discover-btn">Scopri di più</button>
-        </div>
-    </div>
-
-    <!-- Filtri di ricerca -->
-    <div class="filter-container">
-        <div class="filter" data-value="Ristoranti">
-            <span>Ristoranti</span>
-        </div>
-        <div class="filter" data-value="Bar">
-            <span>Bar</span>
-        </div>
-        <div class="filter" data-value="Caffè">
-            <span>Caffè</span>
-        </div>
-        <div class="filter" data-value="Cultura e Musei">
-            <span>Cultura e Musei</span>
-        </div>
-        <div class="filter" data-value="Esperienza">
-            <span>Esperienza</span>
-        </div>
-        <div class="filter" data-value="Shopping">
-            <span>Shopping</span>
-        </div>
-        <!--<div class="filter" data-value="Street">
-            <span>Street Food</span>
-        </div>
-        <div class="filter" data-value="Trasporti">
-            <span>Trasporti</span>
-        </div>-->
-    </div>
-
-    <!-- Barra di ricerca -->
+    <!-- Search Bar -->
     <input type="text" id="searchBar" placeholder="Cerca...">
     
     <section class="cards-container" id="cards-container"></section>
@@ -69,26 +36,26 @@
 
     <!-- Card Pop-up -->
     <div id="popup" class="popup">
-        <!-- Titolo al centro -->
+        <!-- Centered Title -->
         <h2 id="popup-title">Nome</h2>
     
-        <!-- Sezione superiore: immagine a sinistra, mappa a destra -->
+        <!-- Upper section: image left, map right -->
         <div class="up">
             <img alt="Image" id="popup-img">
             <div id="map"></div>
         </div>
     
-        <!-- Sezione inferiore: descrizione, indirizzo, bottoni -->
+        <!-- Lower section: description, address, buttons -->
         <div class="down">
             <p id="popup-description">Descrizione</p>
             <p id="popup-address">
-                <img src="/assets/Icons/address-icon.png" alt="Indirizzo" class="icon-small">
-                <span> </span>
+                <img src="/assets/Icons/address-icon.png" alt="Address" class="icon-small">
+                <span></span>
             </p>
             
             <p id="popup-sconto">
-                <img src="/assets/Icons/discount-icon.png" alt="Sconto" class="icon-small">
-                <span> </span>
+                <img src="/assets/Icons/discount-icon.png" alt="Discount" class="icon-small">
+                <span></span>
             </p>
     
             <div id="popup-buttons">
@@ -102,11 +69,11 @@
 
     <script>
         if (localStorage.getItem('lang') == "en"){
-            window.location.href = "/Html/Eng/main_page.html";
-        }
+            window.location.href = "/Html/Eng/strutture_ricettive.html";
+        } 
     </script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script type="module" src="/Script/main_page_script.js"></script>
+    <script type="module" src="/Script/strutture.js"></script>
 </body>
 </html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contattaci</title>
+  <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4VX2G6WWS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-M4VX2G6WWS');
+    </script>  
+  <link rel="stylesheet" href="/CSS/contatti.css">
+  <link rel="stylesheet" href="/CSS/footer.css">
+    <link rel="stylesheet" href="/CSS/navigation-bar.css">
+    <link rel="icon" href="/assets/favicon.png" type="image/png">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div id="navbar"></div>
+
+  <main class="contatti-container">
+    <section class="info-box">
+      <h2>Contattaci!</h2>
+      <p>Scrivici a <a href="mailto:materacitypass2024@gmail.com">materacitypass2024@gmail.com</a> oppure compila il modulo qui sotto.</p>
+    </section>
+
+    <form class="contatti-form">
+      <label for="email">La tua email</label>
+      <input type="email" id="email" name="email" placeholder="Inserisci la tua mail" required>
+
+      <label for="motivo">Motivo della richiesta</label>
+      <select id="motivo" name="motivo" required>
+        <option value="">-- Seleziona un motivo --</option>
+        <option value="problema-tecnico">Problema tecnico</option>
+        <option value="informazioni">Richiesta informazioni</option>
+        <option value="informazioni">Reparto marketing e commerciale</option>
+        <option value="segnalazione">Segnalazione</option>
+        <option value="altro">Altro</option>
+      </select>
+
+      <label for="messaggio">Messaggio</label>
+      <textarea id="messaggio" name="messaggio" rows="5" placeholder="Scrivi qui la tua segnalazione..." required></textarea>
+
+      <div class="message">
+        <p id="success-message" style="display: none;">Grazie per averci contattato! Ti risponderemo al più presto.</p>
+      <div>
+
+      <button type="submit">Invia</button>
+    </form>
+  </main>
+
+  <footer id="footer" style="margin-bottom: 0;"></footer>
+  <script>
+        if (localStorage.getItem('lang') == "en"){
+            window.location.href = "/Html/Eng/contatti.html";
+        } 
+    </script>
+  <script type="module" src="/Script/contatti.js"></script>
+</body>
+</html>

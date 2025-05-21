@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matera City Pass</title>
+    <title>Accommodations</title>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4VX2G6WWS"></script>
     <script>
@@ -19,45 +19,12 @@
     <meta name="color-scheme" content="light">
 </head>
 <body>
+    <div class="strutture">
+        <h1>Accommodations</h1>
+    </div>
+
     <!-- Navigation Bar -->
     <div id="navbar"></div>
-
-    <!-- Upper banner -->
-    <div class="banner">
-        <div class="banner-content">
-            <h1>The Perfect Guide to Matera</h1>
-            <p>Discover, enjoy and save with our exclusive offers</p>
-            <button class="discover-btn" id="discover-btn">Discover More</button>
-        </div>
-    </div>
-
-    <!-- Search Filters -->
-    <div class="filter-container">
-        <div class="filter" data-value="Ristoranti">
-            <span>Restaurants</span>
-        </div>
-        <div class="filter" data-value="Bar">
-            <span>Bars</span>
-        </div>
-        <div class="filter" data-value="Caffè">
-            <span>Cafés</span>
-        </div>
-        <div class="filter" data-value="Cultura e Musei">
-            <span>Culture and Museums</span>
-        </div>
-        <div class="filter" data-value="Esperienza">
-            <span>Experiences</span>
-        </div>
-        <div class="filter" data-value="Shopping">
-            <span>Shopping</span>
-        </div>
-        <!--<div class="filter" data-value="Street Food">
-            <span>Street Food</span>
-        </div>
-        <div class="filter" data-value="Transport">
-            <span>Transport</span>
-        </div>-->
-    </div>
 
     <!-- Search Bar -->
     <input type="text" id="searchBar" placeholder="Search...">
@@ -102,11 +69,11 @@
 
     <script>
         if (localStorage.getItem('lang') == "it"){
-            window.location.href = "/Html/Ita/main_page.html";
+            window.location.href = "/Html/Ita/strutture_ricettive.html";
         } 
     </script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script type="module" src="/Script/main_page_script.js"></script>
+    <script type="module" src="/Script/strutture.js"></script>
 </body>
 </html>

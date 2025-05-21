@@ -28,13 +28,6 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
-window.addEventListener('DOMContentLoaded', function() {
-    const filter = document.querySelector('.filter');
-    if (filter) {
-        filter.scrollLeft = 0;
-    }
-});
-
 window.onload = function() { 
     closePopup();
     loadNavbar(); 
@@ -42,11 +35,13 @@ window.onload = function() {
 };
 
 // Funzione per il recupero dei dati dai record di Airtable a seconda del filtro selezionato
-function fetchCards(selectedFilter) {
+function fetchCards() {
     const container = document.getElementById("cards-container");
 
     let url_merchants = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_MERCHANTS}`;
     container.innerHTML = "";
+
+    const selectedFilter = "Accoglienza";
 
     if (selectedFilter != null) {
         url_merchants += `?filterByFormula=FIND("${selectedFilter}",{category})`;
@@ -72,10 +67,6 @@ function fetchCards(selectedFilter) {
     });
 }
 
-function findAlberghi(array) {
-  return array.includes("Accoglienza");
-}
-
 
 // Funzione per la visualizzazione e creazione delle card
 function displayCards(records) {
@@ -85,9 +76,8 @@ function displayCards(records) {
     
     records.forEach(record => {
         const state = record.fields.State || 'Non disponibile';
-        const category = record.fields.Category;
      
-        if (state == 'Attivo' && !findAlberghi(category)){
+        if (state == 'Attivo'){
             const name = record.fields.Name;
             const address = record.fields.Address;
             let info = '';
@@ -178,39 +168,14 @@ function fetchSearch(){
 
 document.getElementById("searchBar").addEventListener("input", fetchSearch);
 
-document.addEventListener('DOMContentLoaded', () => { fetchCards(null); });
-
 document.getElementById("overlay").addEventListener("click", closePopup);
 
 document.getElementById("closePopup").addEventListener("click", closePopup);
 
-document.getElementById("discover-btn").addEventListener("click", function() {
-    loadPage("info");
-});
+document.addEventListener('DOMContentLoaded', () => { fetchCards(); });
+
 
 function closePopup() {
     document.getElementById('overlay').style.display = 'none';
     document.getElementById('popup').style.display = 'none';
 }
-
-document.querySelectorAll(".filter").forEach(filter => {
-    filter.addEventListener("click", function() {
-        if (this.classList.contains("active")){
-            this.classList.remove("active");
-            this.querySelector('span').style.color = 'black';
-            filter = null;
-            fetchCards(null);
-            return;
-        }
-        document.querySelectorAll(".filter").forEach(f => {
-            f.classList.remove("active");
-            f.querySelector('span').style.color = 'black';
-        });
-        this.classList.add("active");
-        this.querySelector('span').style.color = '#B75E17';
-        filter = this.dataset.value;
-
-        console.log("Filtro selezionato:", filter);
-        fetchCards(filter);
-    });
-});
