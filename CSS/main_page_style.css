@@ -393,10 +393,19 @@ footer {
 
     .filter span {
         font-size: 1rem;
-        margin-left: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
         margin-top: 5px;
         color: #352B24;
         transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .filter.active {
+        opacity: 1;
+        font-weight: bold;
+        border-bottom: 2px solid #B75E17;
+        padding-bottom: 2px;
+        
     }
 
     .filter{
