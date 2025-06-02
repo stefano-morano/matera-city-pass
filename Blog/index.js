@@ -13,6 +13,9 @@ const url = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_BLOG}?sort[0][field]
 window.onload = function() {
   loadFooter();
   loadNavbar();
+  const language_page = localStorage.getItem('lang') || 'it';
+  const current_language = convert_lang(language_page);
+  console.log("Current language:", current_language);
   fetch(url, {
     headers: {
       Authorization: `Bearer ${AIRTABLE_API_KEY}`
@@ -33,6 +36,9 @@ window.onload = function() {
 
   data.records.forEach(record => {
     const fields = record.fields;
+    const status = fields.Status;
+    const lang_article = fields.Language;
+    if (status !== "Published" || current_language != lang_article) return;
     const dataPubblicazione = fields["Publication Date"];
     if (!dataPubblicazione) return;
 
@@ -78,7 +84,7 @@ window.onload = function() {
     `;
 
     articolo.onclick = () => {
-      window.location.href = `/articolo.html?id=${record.id}`;
+      window.location.href = `./articolo.html?id=${record.id}`;
     };
 
     gruppoData.appendChild(articolo);
@@ -91,4 +97,11 @@ window.onload = function() {
   .catch(error => {
     console.error('Errore nella richiesta:', error);
   });
+}
+
+function convert_lang(language){
+  if (language === 'it') return 'Italian';
+  if (language === 'en') return 'English';
+  if (language === 'es') return 'Spanish';
+  if (language === 'fr') return 'French';
 }

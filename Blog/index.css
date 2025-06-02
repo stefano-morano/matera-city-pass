@@ -16,6 +16,14 @@ header {
   margin-bottom: 2rem;
 }
 
+#article-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
 h1 {
   font-family: 'Logo Font', sans-serif;
   font-size: 2.5rem;
@@ -121,5 +129,24 @@ h1 {
 @media (max-width: 768px) {
   .data-titolo {
     position: static;
+  }
+
+  .blog-item {
+    flex-direction: column;
+    text-align: center;
+    max-width: 90%;
+  }
+
+  .blog-item img {
+    margin: 0 auto 1rem;
+  }
+
+  .blog-text {
+    text-align: center;
+  }
+
+  body{
+    margin: 0;
+    padding: 0;
   }
 }

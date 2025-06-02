@@ -2,8 +2,10 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/CSS/navigation-bar.css">
+  <link rel="stylesheet" href="/CSS/footer.css">
+  <title>Articolo</title>
   <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4VX2G6WWS"></script>
     <script>
@@ -12,25 +14,16 @@
         gtag('js', new Date());
         gtag('config', 'G-M4VX2G6WWS');
     </script>  
-  <link rel="stylesheet" href="/CSS/navigation-bar.css">
-  <link rel="stylesheet" href="/CSS/footer.css">
-  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="articolo.css" />
   <link rel="icon" href="/assets/favicon.png" type="image/png">
 </head>
 <body>
-  <header>
-    <h1>Blog</h1>
-  </header>
-
-  <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
   <div id="navbar"></div>
-
-  <main id="blog-container">
-    <p>Caricamento articoli...</p>
-  </main>
-
+  <button id="backBtn">&#8592; Indietro</button>
+  <div id="article-container"></div>
   <footer id="footer" style="margin-bottom: 0;"></footer>
 
-  <script type="module" src="index.js"></script>
+  <script type="module" src="articolo.js"></script>
 </body>
 </html>
