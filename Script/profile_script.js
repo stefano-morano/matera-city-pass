@@ -62,6 +62,7 @@ async function loadUserProfile(email) {
             fetchCountries(user["Nazionalita"]);
             document.getElementById("data").value = user["Data di Nascita"];
             document.getElementById("genere").value = user["Genere"];
+            document.getElementById("marketing").checked = user["Promotions"] || false;
             if (user["Telefono"] !== "undefined")
                 document.getElementById("telefono").value = user["Telefono"];
             original_genre = user["Genere"];
@@ -78,7 +79,7 @@ async function loadUserProfile(email) {
 function fetchCountries(nation_value) {
   const dropdown = document.getElementById("countryDropdown");
   
-  fetch("https://restcountries.com/v3.1/all")
+  fetch("https://restcountries.com/v3.1/all?fields=name,cca2")
       .then(response => response.json())
       .then(data => {
             if (lang === "it") {

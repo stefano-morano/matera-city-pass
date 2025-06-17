@@ -15,6 +15,16 @@ function loadPage(name) {
     }
 }
 
+// Controllo stato utente
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        console.log("Utente loggato:", user.email);
+        loadPage("loading");
+    } else {
+        console.log("Nessun utente loggato");
+    }
+});
+
 window.onload = function() {
     loadNavbar();
     loadFooter();
@@ -23,6 +33,7 @@ window.onload = function() {
 // Funzione che controlla tutti i parametri per la registrazione alla pressione del tasto
 const registerUser = async () => {
   event.preventDefault();
+  document.getElementById("regButton").disabled = true;
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
   const confirm = document.getElementById("confirm_password").value;
@@ -35,6 +46,7 @@ const registerUser = async () => {
     if (lang === "en") {
         log_msg.innerText = "Warning: fill all the fields";
     }
+    document.getElementById("regButton").disabled = false;
     return;
   }
   
@@ -48,6 +60,7 @@ const registerUser = async () => {
     document.getElementById("email").value = "";
     document.getElementById("password").value = "";
     document.getElementById("confirm_password").value = "";
+    document.getElementById("regButton").disabled = false;
     return;
   }
 
@@ -61,6 +74,7 @@ const registerUser = async () => {
     if (lang === "en") {
       log_msg.textContent = "Warning: this device has already registered an account!";
     }
+    document.getElementById("regButton").disabled = false;
     return;
   }
 
@@ -77,6 +91,7 @@ const registerUser = async () => {
       saveUser(email, deviceID);
     })
     .catch((error) => {
+      document.getElementById("regButton").disabled = false;
       if (error.code === "auth/email-already-in-use") {
         if (lang === "it") {
           log_msg.innerText = "Attenzione: account già esistente";

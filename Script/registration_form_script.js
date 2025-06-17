@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const dropdown = document.getElementById("countryDropdown");
 
     // API per ottenere l'elenco dei paesi
-    fetch("https://restcountries.com/v3.1/all")
+    fetch("https://restcountries.com/v3.1/all?fields=name,cca2")
         .then(response => response.json())
         .then(data => {
             dropdown.innerHTML = ""; // Svuota il dropdown

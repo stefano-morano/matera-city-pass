@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Informazioni</title>
+  <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4VX2G6WWS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-M4VX2G6WWS');
+    </script>  
+    <link rel="icon" href="/assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="/CSS/landing.css">
+  <link rel="stylesheet" href="/CSS/navigation-bar.css">
+    <link rel="stylesheet" href="/CSS/footer.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <div id="navbar"></div>
+
+  <section>
+    <div class="text-container">
+      <h1>Benvenuto a Matera</h1>
+      <p>Scopri la magia dei Sassi e le meraviglie di una città unica al mondo.</p>
+    </div>
+    
+  </section>
+
+  <section>
+    <div class="text-container">
+      <img id="img2" src="/assets/logo.png" alt="Matera City Pass" />
+      <p>Il pass turistico che ti apre le porte della città: sconti, accessi e itinerari guidati in un'unica soluzione.</p>
+    
+    </div>
+  </section>
+
+  <section>
+    <div class="text-container">
+      <h1>Iscriviti in pochi click</h1>
+      <p>Registrati per ottenere il tuo Matera City Pass e iniziare la tua avventura.</p>
+      <img id="img3" src="/assets/pass_land.png" alt="Matera City" />
+    </div>
+  </section>
+
+  <section>
+    <div class="text-container">
+      <h1>Pronto a partire?</h1>
+      <p>Clicca qui sotto per iscriverti!</p>
+      <button id="button_price">Iscriviti</button>
+    </div> 
+  </section>
+
+  <footer id="footer" style="margin-bottom: 0;"></footer>
+
+  <script type="module" src="/Script/landing.js"></script>
+
+   <script>
+        if (localStorage.getItem('lang') == "en"){
+            window.location.href = "/Html/Eng/landing.html";
+        } 
+    </script>
+</body>
+</html>

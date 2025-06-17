@@ -185,7 +185,7 @@ document.getElementById("overlay").addEventListener("click", closePopup);
 document.getElementById("closePopup").addEventListener("click", closePopup);
 
 document.getElementById("discover-btn").addEventListener("click", function() {
-    loadPage("info");
+    loadPage("landing");
 });
 
 function closePopup() {

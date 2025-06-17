@@ -1,0 +1,123 @@
+@font-face {
+    font-family: 'Logo Font';
+    src: url('../assets/Steravina.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('../assets/landing_pc.png') repeat center;
+      color: #2c2c2c;
+      overflow-x: hidden;
+}
+
+ section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.text-container {
+  z-index: 2;
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 1s ease;
+}
+
+.text-container.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+    h1 {
+      font-size: 5vw;
+      font-family: 'Logo Font', sans-serif;
+      color: #b75e17;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      margin-bottom: 3rem;
+    }
+
+
+    .image-container {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .image-container img {
+        max-width: 100%;
+        max-height: 80vh;
+        object-fit: contain;
+    }
+
+    button {
+      margin-top: 2rem;
+      background-color: #b75e17;
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #924b13;
+    }
+
+    #img2 {
+        width: 40%;
+        height: auto;
+        max-width: 600px;
+        margin-bottom: 3rem;
+        max-height: 80vh;
+        object-fit: contain;
+    }
+
+    #img3 {
+        width: 30%;
+        height: auto;
+        max-width: 600px;
+        max-height: 80vh;
+        object-fit: contain;
+    }
+
+@media (max-width: 768px) {
+    body {
+        background: url('../assets/landing_background.png') repeat center;
+        background-size: contain;
+    }
+
+    h1 {
+        font-size: 1.7rem;
+        font-weight: bold;
+    }
+
+    p {
+        font-size: 1.1rem;
+    }
+
+    .image-container img {
+        max-width: 90%;
+        max-height: 60vh;
+    }
+
+    #img2, #img3 {
+        width: 80%;
+        max-width: 100%;
+        max-height: 60vh;
+    }
+}

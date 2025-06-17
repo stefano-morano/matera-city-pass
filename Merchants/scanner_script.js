@@ -161,7 +161,7 @@ async function find_user(email) {
   }
 }
 
-async function completeTransaction(email) {
+async function completeTransaction(email, free) {
   const url = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_TRANSACTIONS}`;
   const url_pass = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_PASS}/${recordID}`;
   await fetch(url, {
@@ -174,28 +174,31 @@ async function completeTransaction(email) {
       records: [{
         fields: {
           "User": email,
-          "Merchant": nome_azienda
+          "Merchant": nome_azienda,
+          "Gratis": free
         }
       }]
     })
   });
 
-  let new_musei = number_musei - 1;
+  if (bool_museo) {
+    let new_musei = number_musei - 1;
 
-  if (new_musei < 0) new_musei = 0;
+    if (new_musei < 0) new_musei = 0;
 
-  await fetch(url_pass, {
-    method: "PATCH",
-    headers: {
-      Authorization: `Bearer ${AIRTABLE_API_KEY}`,
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      fields: {
-        "Musei": new_musei
-      }
-    })
-  });
+    await fetch(url_pass, {
+      method: "PATCH",
+      headers: {
+        Authorization: `Bearer ${AIRTABLE_API_KEY}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          fields: {
+            "Musei": new_musei
+          }
+        })
+    });
+  }
 }
 
 function scanMode() {
@@ -240,7 +243,7 @@ function validMode(email, free) {
     name_label.innerText = nome_user + " " + cognome_user;
     name_label.style.display = "block";
     button.onclick = () => {
-      completeTransaction(email).then(() => {
+      completeTransaction(email, free).then(() => {
         console.log("Transazione completata");
         scanMode();
       });
