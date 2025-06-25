@@ -52,7 +52,7 @@ onAuthStateChanged(auth, (user) => {
         );
         
         document.getElementById("third").addEventListener("click", function() {
-            let url = 'https://buy.stripe.com/00gdUA0Gx8Q20bS3cc?prefilled_email=' + user_mail;
+            let url = 'https://buy.stripe.com/7sY00k0aXfb53bC3bFbsc05?prefilled_email=' + user_mail;
             console.log(url);
             window.location.href = url;
         }
