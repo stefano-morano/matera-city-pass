@@ -19,7 +19,7 @@ function loadPage(name) {
 onAuthStateChanged(auth, (user) => {
     if (user) {
         console.log("Utente loggato:", user.email);
-        loadPage("loading");
+        //loadPage("loading");
     } else {
         console.log("Nessun utente loggato");
     }

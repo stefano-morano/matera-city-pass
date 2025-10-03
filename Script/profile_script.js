@@ -23,6 +23,7 @@ window.onload = function() {
 var user_email;
 var original_genre;
 
+
 onAuthStateChanged(auth, (user) => {
     if (user) {
         console.log("Utente loggato:", user.email);

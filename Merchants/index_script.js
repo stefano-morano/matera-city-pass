@@ -1,6 +1,4 @@
-const AIRTABLE_API_KEY = "patEXENejmC8OJ7Sw.9d4d6cdc375ffe002fb191e247fe552382bfebc3dc2cc7f6384f6b776e0994dd";
-const BASE_ID = "appe1tu6Zuh3WcByY";
-const TABLE_MERCHANTS = "Merchants";
+import {AIRTABLE_API_KEY, BASE_ID, TABLE_MERCHANTS} from "../Script/airtable-config.js";
 
 // Ottieni i parametri della URL
 const params = new URLSearchParams(window.location.search);
